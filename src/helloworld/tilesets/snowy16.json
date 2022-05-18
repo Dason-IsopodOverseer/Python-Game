@@ -1,0 +1,14 @@
+{ "columns":23,
+ "image":"..\/images\/tiles_packed.png",
+ "imageheight":128,
+ "imagewidth":368,
+ "margin":0,
+ "name":"snowy16",
+ "spacing":0,
+ "tilecount":184,
+ "tiledversion":"1.8.5",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.8"
+}
