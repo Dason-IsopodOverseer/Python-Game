@@ -21,6 +21,7 @@ class ServerMap(engine.servermap.ServerMap):
     dialog1 = "empty" #do not alter this under any circumstance
     inDialog = False
     dialogCounter = 0
+    dialogComplete = [False, False, False]
 
     def initDialogs(self):
         # find json file
@@ -64,18 +65,20 @@ class ServerMap(engine.servermap.ServerMap):
         self.setSpriteSpeechText(sprite, "I seem to have gotten wet.")
     
     def triggerDialog(self, trigger, sprite):
-        if not self.inDialog and (self.dialogCounter == 0):
+        if not self.dialogComplete[0]:
             self.freeze(sprite)
-            self.inDialog = True
-            self.speak(sprite)
-            self.dialogCounter += 1
-        elif not self.inDialog and (self.dialogCounter != 0):
-            self.dialogCounter = 0
-            self.unfreeze(sprite)
-        else: 
-            if "action" in sprite:
+            if not self.inDialog and (self.dialogCounter == 0):
+                self.inDialog = True
+            elif not self.inDialog and (self.dialogCounter != 0):
+                self.dialogCounter = 0
+                self.unfreeze(sprite)
+                self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
+                self.delSpriteSpeechText(sprite)
+                self.dialogComplete[0] = True
+            else: 
                 self.speak(sprite)
-                self.dialogCounter += 1          
+                if "action" in sprite:
+                    self.dialogCounter += 1
 
     """counts the dialog progression and executes dialog.
     dialog is complete when all lines in the array have been said, so dialogcounter == array.length"""
@@ -85,6 +88,5 @@ class ServerMap(engine.servermap.ServerMap):
             text.append(i)
         if (self.dialogCounter >= len(text)):
             self.inDialog = False
-            self.delSpriteSpeechText(sprite)
         else: 
             self.setSpriteSpeechText(sprite, text[self.dialogCounter])
