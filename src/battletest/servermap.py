@@ -81,9 +81,9 @@ class ServerMap(engine.servermap.ServerMap):
         for sprite in self['sprites']:
             if sprite['name'] == "enemy":
                 if self.turnDone:
-                    #text isnt working rn, fix later
-                    self.setSpriteSpeechText(sprite, "he he he haw")
-                    
+                    #text now working, only disappears if player sprite is moving (?)
+                    self.setSpriteSpeechText(sprite, "he he he haw", time.perf_counter() + 0.1)
+
                     if self.eTurnEndTime == 0:
                         self.eTurnEndTime = time.perf_counter() + 2
                     elif time.perf_counter() > self.eTurnEndTime:
