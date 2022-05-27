@@ -5,6 +5,7 @@ from ctypes import windll
 import engine.geometry as geo
 
 class ServerMap(engine.servermap.ServerMap):
+
     """Extends engine.servermap.ServerMap
 
     TRIGGER DIALOG MECHANIC
@@ -24,7 +25,8 @@ class ServerMap(engine.servermap.ServerMap):
     inDialog = False
     dialogCounter = 0
     dialogComplete = []
-    canMove = True # used to enable and disable mouse click 
+    canMove = True # used to enable and disable mouse click
+    currentSpeaker = "Eric"
 
     # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
@@ -38,7 +40,7 @@ class ServerMap(engine.servermap.ServerMap):
         print("Loading dialogs using the following path: " + filepath)
 
         if os.path.isfile(filepath):
-            print("file found!")
+            print("file found")
         else: 
             print("dialog josn file error.")
             quit()
@@ -50,7 +52,7 @@ class ServerMap(engine.servermap.ServerMap):
         self.dialogComplete = []
         for i in self.dialog1:
             self.dialogComplete.append(False)
-
+        
     def freeze(self, sprite):      
         #Change the sprite's moveSpeed to zero.
         # if sprite is moving, cancel the movement by setting speed to 0.
