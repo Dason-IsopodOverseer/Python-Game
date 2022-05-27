@@ -3,7 +3,7 @@
 # !!! How to use cutscene system, DOCUMENTATION:
 Dialouge for cutscenes are stored in src/gamename/dialog
 They are json files, which look like this:
-
+```
 {
     "1": [
       "lock% Good mroning, I hope you had a pleasant day?",
@@ -16,6 +16,7 @@ They are json files, which look like this:
         "unlock% I guess I'll never know..."
     ]
 }
+```
 
 * Each number indicates a different person speaking, or the same person speaking at a different location.
 * When the dialog runs, the game will go through all lines in order.
