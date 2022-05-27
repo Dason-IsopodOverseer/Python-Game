@@ -1,7 +1,9 @@
 import engine.servermap
-import json;
+import json
 import os
 from ctypes import windll
+import engine.geometry as geo
+
 class ServerMap(engine.servermap.ServerMap):
     """Extends engine.servermap.ServerMap
 
@@ -22,6 +24,7 @@ class ServerMap(engine.servermap.ServerMap):
     inDialog = False
     dialogCounter = 0
     dialogComplete = []
+    canMove = True
 
     def initDialogs(self):
         # find json file
@@ -32,6 +35,7 @@ class ServerMap(engine.servermap.ServerMap):
         parent_path = os.path.join(dir_name, folder)
         filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
         print("Loading dialogs using the following path: " + filepath)
+        # self.canMove = False
 
         if os.path.isfile(filepath):
             print("file found!")
@@ -46,26 +50,27 @@ class ServerMap(engine.servermap.ServerMap):
         self.dialogComplete = []
         for i in self.dialog1:
             self.dialogComplete.append(False)
+    
+    # EMILY LOOK AT DIS
+    def startMoving(self, sprite):
+        print("method activated")
+        print(sprite)
+        self.setMoveLinear(sprite, 400, 400, 1)
 
-    def freeze(self, sprite):
-        """
-        Change the sprite's moveSpeed to zero.
-        """
+    def freeze(self, sprite):      
+        #Change the sprite's moveSpeed to zero.
         # if sprite is moving, cancel the movement by setting speed to 0.
         if "move" in sprite and sprite['move']['type'] == "Linear":
             sprite['speedMultiNormalSpeed'] = sprite['move']['s']
             sprite['move']['s'] *= 0
-            self.stop_infinite_mouse_control
-    
+ 
     def unfreeze(self, sprite):
-        """
-        Reset the sprite's moveSpeed.
-        """
+        #Reset the sprite's moveSpeed.
         if "speedMultiNormalSpeed" in sprite:
                 if "move" in sprite and sprite['move']['type'] == "Linear":
                     sprite['move']['s'] = sprite['speedMultiNormalSpeed']
                 del sprite['speedMultiNormalSpeed']
-    
+
     def triggerSayhello(self, trigger, sprite):
         self.setSpriteSpeechText(sprite, "I seem to have gotten wet.")
     
@@ -73,14 +78,17 @@ class ServerMap(engine.servermap.ServerMap):
         id = trigger['prop-id']
         if not self.dialogComplete[id]:
             self.freeze(sprite)
+            self.canMove = False
             if not self.inDialog and (self.dialogCounter == 0):
                 self.inDialog = True
             elif not self.inDialog and (self.dialogCounter != 0):
                 self.dialogCounter = 0
+                self.canMove = True
                 self.unfreeze(sprite)
                 self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
                 self.delSpriteSpeechText(sprite)
                 self.dialogComplete[id] = True
+                self.startMoving(sprite)
             else: 
                 self.speak(sprite, id)
                 if "action" in sprite:
@@ -97,7 +105,5 @@ class ServerMap(engine.servermap.ServerMap):
         else: 
             self.setSpriteSpeechText(sprite, text[self.dialogCounter])
 
-    def stop_infinite_mouse_control(self):
-        windll.user32.BlockInput(True) #this will block the keyboard input
-    def start_infinite_mouse_control(self):
-        windll.user32.BlockInput(False) #now the keyboard will be unblocked
+    def getMovability(self):
+        return self.canMove

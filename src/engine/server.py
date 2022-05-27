@@ -334,7 +334,8 @@ class Server(dict):
         if ipport in self['players']:  # if this is a player who has already joined the game
             sprite = self['players'][ipport]['sprite']
             map = self['maps'][sprite['mapName']]
-            map.setMoveLinear(sprite, msg['moveDestX'], msg['moveDestY'], self['players'][ipport]['moveSpeed'])
+            if (map.getMovability() == True): #XXX
+                map.setMoveLinear(sprite, msg['moveDestX'], msg['moveDestY'], self['players'][ipport]['moveSpeed'])
 
     def msgPlayerAction(self, ip, port, ipport, msg):
         """Process msg of type playerAction.
