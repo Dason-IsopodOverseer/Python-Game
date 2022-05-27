@@ -24,8 +24,9 @@ class ServerMap(engine.servermap.ServerMap):
     inDialog = False
     dialogCounter = 0
     dialogComplete = []
-    canMove = True
+    canMove = True # used to enable and disable mouse click 
 
+    # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
         # find json file
         dir_name = os.path.dirname(os.path.realpath(__file__))
@@ -35,7 +36,6 @@ class ServerMap(engine.servermap.ServerMap):
         parent_path = os.path.join(dir_name, folder)
         filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
         print("Loading dialogs using the following path: " + filepath)
-        # self.canMove = False
 
         if os.path.isfile(filepath):
             print("file found!")
@@ -50,12 +50,6 @@ class ServerMap(engine.servermap.ServerMap):
         self.dialogComplete = []
         for i in self.dialog1:
             self.dialogComplete.append(False)
-    
-    # EMILY LOOK AT DIS
-    def startMoving(self, sprite):
-        print("method activated")
-        print(sprite)
-        self.setMoveLinear(sprite, 400, 400, 1)
 
     def freeze(self, sprite):      
         #Change the sprite's moveSpeed to zero.
@@ -74,21 +68,19 @@ class ServerMap(engine.servermap.ServerMap):
     def triggerSayhello(self, trigger, sprite):
         self.setSpriteSpeechText(sprite, "I seem to have gotten wet.")
     
+    # this function is fired whenever a player steps onto a dialog box
     def triggerDialog(self, trigger, sprite):
         id = trigger['prop-id']
         if not self.dialogComplete[id]:
             self.freeze(sprite)
-            self.canMove = False
             if not self.inDialog and (self.dialogCounter == 0):
                 self.inDialog = True
             elif not self.inDialog and (self.dialogCounter != 0):
-                self.dialogCounter = 0
-                self.canMove = True
                 self.unfreeze(sprite)
+                self.dialogCounter = 0
+                self.dialogComplete[id] = True
                 self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
                 self.delSpriteSpeechText(sprite)
-                self.dialogComplete[id] = True
-                self.startMoving(sprite)
             else: 
                 self.speak(sprite, id)
                 if "action" in sprite:
@@ -102,8 +94,22 @@ class ServerMap(engine.servermap.ServerMap):
             text.append(i)
         if (self.dialogCounter >= len(text)):
             self.inDialog = False
+        elif("move%" in  text[self.dialogCounter]):
+            self.inDialog = False
+            t = text[self.dialogCounter].split(" ")
+            self.setMoveLinear(sprite, int(t[1]), int(t[2]), int(t[3]))
+            self.unfreeze(sprite)
+            self.dialogCounter = 0
+            self.dialogComplete[id] = True
         else: 
-            self.setSpriteSpeechText(sprite, text[self.dialogCounter])
+            t = text[self.dialogCounter]
+            if("unlock%" in t):
+                self.canMove = True
+                t = t.split("unlock% ")[1]
+            elif("lock%" in t):
+                self.canMove = False
+                t = t.split("lock% ")[1]
+            self.setSpriteSpeechText(sprite, t)
 
     def getMovability(self):
         return self.canMove
