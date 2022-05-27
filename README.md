@@ -24,7 +24,7 @@ They are json files, which look like this:
 There are currently 3 special commands to use.
 * lock% will disable mouse clicks. Use it at the beginning of any cutscene. Do not use it by itself in 1 line. Always pair it with dialog to save space.
 * unlock% will enable mouse clicks. Use it at end of a cutscene to change to normal gameplay.
-* you can use move% at the end of a number array to move the character. The first digit represents the X-coord. Second is y-coord. Third is speed. 100 is roughly the default speed, so use that when in doubt.
+* you can use move% at the end of a number array to move the character. The first digit represents the X-coord. Second is y-coord. Third is speed. 100 is roughly the default speed, so use that when in doubt. MOVE% CAN ONLY BE USED BY ITSELF IN ONE LINE! IT WILL END THE DIALOG, even if you have more dialog after it. ALWAYS PLACE IT AT THE END OF THE ARRAY.
 
 
 # LAN-Caster - About
