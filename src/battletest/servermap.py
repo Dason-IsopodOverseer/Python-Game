@@ -89,5 +89,8 @@ class ServerMap(engine.servermap.ServerMap):
                     elif time.perf_counter() > self.eTurnEndTime:
                         self.eTurnEndTime = 0
                         self.turnDone = False
+
+    def getMovability(self):
+        return True
                        
                     
