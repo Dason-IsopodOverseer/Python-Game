@@ -1,7 +1,7 @@
 import engine.servermap
 import json;
 import os
-
+from ctypes import windll
 class ServerMap(engine.servermap.ServerMap):
     """Extends engine.servermap.ServerMap
 
@@ -55,6 +55,7 @@ class ServerMap(engine.servermap.ServerMap):
         if "move" in sprite and sprite['move']['type'] == "Linear":
             sprite['speedMultiNormalSpeed'] = sprite['move']['s']
             sprite['move']['s'] *= 0
+            self.stop_infinite_mouse_control
     
     def unfreeze(self, sprite):
         """
@@ -95,3 +96,8 @@ class ServerMap(engine.servermap.ServerMap):
             self.inDialog = False
         else: 
             self.setSpriteSpeechText(sprite, text[self.dialogCounter])
+
+    def stop_infinite_mouse_control(self):
+        windll.user32.BlockInput(True) #this will block the keyboard input
+    def start_infinite_mouse_control(self):
+        windll.user32.BlockInput(False) #now the keyboard will be unblocked
