@@ -1,0 +1,14 @@
+{ "columns":56,
+ "image":"..\/..\/..\/images\/2dpixx_ccart_indoor_tiles.png",
+ "imageheight":1152,
+ "imagewidth":896,
+ "margin":0,
+ "name":"bedroom16x16",
+ "spacing":0,
+ "tilecount":4032,
+ "tiledversion":"2021.03.23",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":1.5
+}
