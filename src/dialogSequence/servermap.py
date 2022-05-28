@@ -29,17 +29,21 @@ class ServerMap(engine.servermap.ServerMap):
     canMove = True # used to enable and disable mouse click
     currentSpeaker = "Eric"
 
-    # initializes all class variables essential for cutscene dialogs
-    def initDialogs(self):
-        # find json file
+    # loads a json file
+    def getJsonData(self, folderName, fileName):
+        # find json file by formatting the name exactly
         dir_name = os.path.dirname(os.path.realpath(__file__))
-        base_filename = "1"
-        folder = "dialog"
+        base_filename = fileName
+        folder = folderName
         filename_suffix = "json"
         parent_path = os.path.join(dir_name, folder)
         filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
-        print("Loading dialogs using the following path: " + filepath)
+        print("Loading json using the following path: " + filepath)
+        return filepath
 
+    # initializes all class variables essential for cutscene dialogs
+    def initDialogs(self):
+        filepath = self.getJsonData("dialog", "1")
         if os.path.isfile(filepath):
             print("file found")
         else: 
@@ -76,7 +80,6 @@ class ServerMap(engine.servermap.ServerMap):
         name = sprite["name"]
         if (name == self.currentSpeaker):
             id = trigger['prop-id']
-            print(self.dialogComplete)
             if not self.dialogComplete[id]:
                 self.freeze(sprite)
                 if not self.inDialog and (self.dialogCounter == 0):
