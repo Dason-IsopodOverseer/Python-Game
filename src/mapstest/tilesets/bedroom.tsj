@@ -1,0 +1,14 @@
+{ "columns":28,
+ "image":"..\/images\/bedroombase.png",
+ "imageheight":1152,
+ "imagewidth":896,
+ "margin":0,
+ "name":"bedroom",
+ "spacing":0,
+ "tilecount":1008,
+ "tiledversion":"1.8.5",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.8"
+}
