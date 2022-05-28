@@ -8,6 +8,9 @@ Doug Bakewell
 
 - fantasy-tileset.png is from https://opengameart.org/content/32x32-fantasy-tileset
 - circlereflector.png is from https://www.iconfinder.com/icons/29260/ball_draw_sphere_icon
+- bedroombase.png is from https://opengameart.org/content/indoor-tileset 
+- DungeonCrawl_ProjectUtunmoTileset.png is from https://opengameart.org/content/dungeon-crawl-32x32-tiles
+-ProjectUtunmoFull is from https://opengameart.org/content/dungeon-crawl-32x32-tiles
 
 
 ## Font Crdits
