@@ -30,7 +30,7 @@ class ServerMap(engine.servermap.ServerMap):
     currentSpeaker = "Eric"
 
     # loads a json file
-    def getJsonData(self, folderName, fileName):
+    def getJsonPath(self, folderName, fileName):
         # find json file by formatting the name exactly
         dir_name = os.path.dirname(os.path.realpath(__file__))
         base_filename = fileName
@@ -43,13 +43,12 @@ class ServerMap(engine.servermap.ServerMap):
 
     # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
-        filepath = self.getJsonData("dialog", "1")
+        filepath = self.getJsonPath("dialog", "1")
         if os.path.isfile(filepath):
             print("file found")
         else: 
             print("dialog josn file error.")
             quit()
-
         # Opening JSON file
         with open(filepath) as f:
             self.dialog1 = json.load(f)
