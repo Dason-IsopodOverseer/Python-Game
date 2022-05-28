@@ -52,7 +52,7 @@
                  "gid":225,
                  "height":32,
                  "id":31,
-                 "name":"",
+                 "name":"Eric",
                  "properties":[
                         {
                          "name":"name",
@@ -63,20 +63,20 @@
                  "type":"player",
                  "visible":true,
                  "width":32,
-                 "x":142.666666666667,
-                 "y":110.666666666667
+                 "x":145.589988408872,
+                 "y":113.589988408872
                 }, 
                 {
                  "gid":225,
                  "height":32,
                  "id":35,
-                 "name":"",
+                 "name":"Andre",
                  "rotation":0,
                  "type":"player",
                  "visible":true,
                  "width":32,
-                 "x":128.41209406495,
-                 "y":214.785878469971
+                 "x":141.274709730654,
+                 "y":246.35775328579
                 }],
          "opacity":1,
          "properties":[
@@ -192,7 +192,7 @@
                         {
                          "name":"id",
                          "type":"int",
-                         "value":3
+                         "value":2
                         }],
                  "rotation":0,
                  "type":"dialog",

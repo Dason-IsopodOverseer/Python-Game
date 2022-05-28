@@ -3,6 +3,7 @@ import json
 import os
 from ctypes import windll
 import engine.geometry as geo
+import engine.client
 
 class ServerMap(engine.servermap.ServerMap):
 
@@ -72,21 +73,24 @@ class ServerMap(engine.servermap.ServerMap):
     
     # this function is fired whenever a player steps onto a dialog box
     def triggerDialog(self, trigger, sprite):
-        id = trigger['prop-id']
-        if not self.dialogComplete[id]:
-            self.freeze(sprite)
-            if not self.inDialog and (self.dialogCounter == 0):
-                self.inDialog = True
-            elif not self.inDialog and (self.dialogCounter != 0):
-                self.unfreeze(sprite)
-                self.dialogCounter = 0
-                self.dialogComplete[id] = True
-                self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
-                self.delSpriteSpeechText(sprite)
-            else: 
-                self.speak(sprite, id)
-                if "action" in sprite:
-                    self.dialogCounter += 1
+        name = sprite["name"]
+        if (name == self.currentSpeaker):
+            id = trigger['prop-id']
+            print(self.dialogComplete)
+            if not self.dialogComplete[id]:
+                self.freeze(sprite)
+                if not self.inDialog and (self.dialogCounter == 0):
+                    self.inDialog = True
+                elif not self.inDialog and (self.dialogCounter != 0):
+                    self.unfreeze(sprite)
+                    self.dialogCounter = 0
+                    self.dialogComplete[id] = True
+                    self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
+                    self.delSpriteSpeechText(sprite)
+                else: 
+                    self.speak(sprite, id)
+                    if "action" in sprite:
+                        self.dialogCounter += 1
 
     """counts the dialog progression and executes dialog.
     dialog is complete when all lines in the array have been said, so dialogcounter == array.length"""
@@ -96,10 +100,18 @@ class ServerMap(engine.servermap.ServerMap):
             text.append(i)
         if (self.dialogCounter >= len(text)):
             self.inDialog = False
-        elif("move%" in  text[self.dialogCounter]):
+        elif("move%" in text[self.dialogCounter]):
             self.inDialog = False
             t = text[self.dialogCounter].split(" ")
             self.setMoveLinear(sprite, int(t[1]), int(t[2]), int(t[3]))
+            self.unfreeze(sprite)
+            self.dialogCounter = 0
+            self.dialogComplete[id] = True
+        elif ("speaker%" in text[self.dialogCounter]):
+            t = text[self.dialogCounter].split(" ")
+            print(t)
+            print(t[1])
+            self.currentSpeaker = t[1]
             self.unfreeze(sprite)
             self.dialogCounter = 0
             self.dialogComplete[id] = True
