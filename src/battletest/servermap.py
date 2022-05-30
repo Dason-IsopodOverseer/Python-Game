@@ -55,53 +55,46 @@ class ServerMap(engine.servermap.ServerMap):
         is not currently over and the sprite has requested an action, perform
         action accordingly.
         """
-        if self.currentTurn == 0:
-            player = "Eric"
-        elif self.currentTurn == 1:
-            player = "Andre"
-        elif self.currentTurn == 2: 
-            player = "Leslie"
-        if player == sprite["name"]:
-            if "action" in sprite and not self.turnDone:
-                self.delSpriteAction(sprite)
+        if "action" in sprite and not self.turnDone:
+            self.delSpriteAction(sprite)
 
-                # if player attacking
-                if currentAct == 'a':
-                    damage = random.randrange(8, 12)
+            # if player attacking
+            if currentAct == 'a':
+                damage = random.randrange(8, 12)
 
-                    if (sprite["name"] == "Andre"):
-                        damage *= self.aDmgMult
-                    elif (sprite["name"] == "Eric"):
-                        damage *= self.eDmgMult
-                    elif (sprite["name"] == "Leslie"):
-                        damage *= self.lDmgMult
+                if (sprite["name"] == "Andre"):
+                    damage *= self.aDmgMult
+                elif (sprite["name"] == "Eric"):
+                    damage *= self.eDmgMult
+                elif (sprite["name"] == "Leslie"):
+                    damage *= self.lDmgMult
 
-                    self.setSpriteSpeechText(sprite, "attacked", time.perf_counter() + 2)
-                    
-                    n = random.randrange(1, 20)
-                    if (n > 3):
-                        self.enemyHealth -= damage
-                        if (n == 20):
-                            self.enemyHealth -= random.randRange(5, 7)
-                            self.setSpriteSpeechText(sprite, "critical hit!", time.perf_counter() + 1)
+                self.setSpriteSpeechText(sprite, "attacked", time.perf_counter() + 2)
                 
-                # if player defending
-                elif currentAct == 'd':
-                    self.setSpriteSpeechText(sprite, "defended", time.perf_counter() + 2)
-                    if (sprite["name"] == "Andre"):
-                        self.aDefending = True
-                    elif (sprite["name"] == "Eric"):
-                        self.eDefending = True
-                    elif (sprite["name"] == "Leslie"):
-                        self.lDefending = True
+                n = random.randrange(1, 20)
+                if (n > 3):
+                    self.enemyHealth -= damage
+                    if (n == 20):
+                        self.enemyHealth -= random.randRange(5, 7)
+                        self.setSpriteSpeechText(sprite, "critical hit!", time.perf_counter() + 1)
+            
+            # if player defending
+            elif currentAct == 'd':
+                self.setSpriteSpeechText(sprite, "defended", time.perf_counter() + 2)
+                if (sprite["name"] == "Andre"):
+                    self.aDefending = True
+                elif (sprite["name"] == "Eric"):
+                    self.eDefending = True
+                elif (sprite["name"] == "Leslie"):
+                    self.lDefending = True
 
-                # if player using special action
-                elif currentAct == 's':
-                    self.setSpriteSpeechText(sprite, "acted specially", time.perf_counter() + 2)
-            self.currentTurn += 1
-            if self.currentTurn > 2:
-                self.currentTurn = 0
-                self.turnDone = True
+            # if player using special action
+            elif currentAct == 's':
+                self.setSpriteSpeechText(sprite, "acted specially", time.perf_counter() + 2)
+        self.currentTurn += 1
+        if self.currentTurn > 2:
+            self.currentTurn = 0
+            self.turnDone = True
 
     def triggerAttack(self, trigger, sprite):
         """BATTLE ACTION MECHANIC: triggerAttack method.
@@ -109,8 +102,9 @@ class ServerMap(engine.servermap.ServerMap):
         Prompt player to attack and perform attack if sprite requests action.
         """
         if not self.turnDone:
-            self.setSpriteSpeechText(sprite, "Press space to attack")
-            self.act(self, sprite, 'a')
+            #if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
+                self.setSpriteSpeechText(sprite, "Press space to attack")
+                self.act(self, sprite, 'a')
 
     
     def triggerDefend(self, trigger, sprite):
@@ -119,8 +113,9 @@ class ServerMap(engine.servermap.ServerMap):
         Prompt player to defend and perform defense if sprite requests action.
         """
         if not self.turnDone:
-            self.setSpriteSpeechText(sprite, "Press space to defend")
-            self.act(self, sprite, 'd')
+            #if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
+                self.setSpriteSpeechText(sprite, "Press space to defend")
+                self.act(self, sprite, 'd')
     
     def triggerSpecial(self, trigger, sprite):
         """BATTLE ACTION MECHANIC: triggerSpecial method.
@@ -129,8 +124,9 @@ class ServerMap(engine.servermap.ServerMap):
         requests action.
         """
         if not self.turnDone:
-            self.setSpriteSpeechText(sprite, "Press space to use special action")
-            self.act(self, sprite, 's')
+            #if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
+                self.setSpriteSpeechText(sprite, "Press space to use special action")
+                self.act(self, sprite, 's')
     
     ########################################################
     # TURN MECHANIC
@@ -179,5 +175,5 @@ class ServerMap(engine.servermap.ServerMap):
             elif sprite['name'] == "Andre":
                 self.setSpriteLabelText(sprite, "Health: " + str(self.aHealth))
             elif sprite['name'] == "Leslie":
-                self.setSpriteLabelText(sprite, "Health: " + str(self.eHealth)) 
+                self.setSpriteLabelText(sprite, "Health: " + str(self.lHealth)) 
                     
