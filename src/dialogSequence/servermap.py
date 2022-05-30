@@ -111,12 +111,10 @@ class ServerMap(engine.servermap.ServerMap):
             self.dialogComplete[id] = True
         elif ("speaker%" in text[self.dialogCounter]):
             t = text[self.dialogCounter].split(" ")
-            print(t)
-            print(t[1])
             self.currentSpeaker = t[1]
             self.unfreeze(sprite)
             self.dialogCounter = 0
-            self.dialogComplete[id] = True
+            self.dialogComplete[id] = True    
         else: 
             t = text[self.dialogCounter]
             if("unlock%" in t):
