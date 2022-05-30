@@ -74,7 +74,7 @@ class Client(dict):
 
     See src/demo/client.py for an example.
     """
-
+    
     def __init__(self, args):
         """Init the Client class.
 
@@ -101,6 +101,7 @@ class Client(dict):
 
         self['game'] = args.game
         self['playerDisplayName'] = args.playerDisplayName
+        self.username = args.playerDisplayName
         self['connectName'] = args.connectName
         self['connectorHostName'] = args.connectorHostName
         self['connectorPort'] = args.connectorPort

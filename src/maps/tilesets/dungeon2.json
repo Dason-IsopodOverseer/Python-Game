@@ -1,0 +1,14 @@
+{ "columns":64,
+ "image":"\/\/s49fs\/StudentHome$\/2025087\/Downloads\/ProjectUtumno_full.png",
+ "imageheight":3040,
+ "imagewidth":2048,
+ "margin":0,
+ "name":"dungeon2",
+ "spacing":0,
+ "tilecount":6080,
+ "tiledversion":"2021.03.23",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":1.5
+}

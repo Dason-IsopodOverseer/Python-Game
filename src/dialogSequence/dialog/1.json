@@ -7,7 +7,17 @@
     ],
     "2": [
         "Actually, now that I think about it, what even is milk toast?",
+<<<<<<< HEAD
         "unlock% I guess I'll never know...",
         "move% 310 400 100"
+=======
+        "I guess I'll never know...",
+        "speaker% Andre"
+    ],
+    "3": [
+      "Well, sir, I happen to know about milk toast.",
+      "In fact, my dad is a professor in that very subject.",
+      "unlock% Let's go pay him a visit."
+>>>>>>> 0615b38d980a7a640dd28af3e91eb290685450c5
     ]
 }
