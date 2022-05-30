@@ -146,12 +146,6 @@ class ServerMap(engine.servermap.ServerMap):
                         self.enAttacked = True
                         self.eTurnEndTime = 0
                         self.turnDone = False
-<<<<<<< HEAD
-
-    def getMovability(self):
-        return True
-                       
-=======
                         self.enAttacked = False
                         self.eDefending = False
                         self.aDefending = False
@@ -160,5 +154,4 @@ class ServerMap(engine.servermap.ServerMap):
                 self.setSpriteLabelText(sprite, "health: " + str(self.eHealth))
             elif sprite['name'] == "Andre":
                 self.setSpriteLabelText(sprite, "Health: " + str(self.aHealth))
->>>>>>> 0615b38d980a7a640dd28af3e91eb290685450c5
                     
