@@ -8,15 +8,6 @@
  "tilecount":24320,
  "tiledversion":"2021.03.23",
  "tileheight":16,
- "tiles":[
-        {
-         "animation":[
-                {
-                 "duration":130,
-                 "tileid":256
-                }],
-         "id":397
-        }],
  "tilewidth":16,
  "type":"tileset",
  "version":1.5
