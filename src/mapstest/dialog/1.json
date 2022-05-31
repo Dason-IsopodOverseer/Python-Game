@@ -1,0 +1,28 @@
+{
+  "1": [
+    "lock% Let's begin the game!",
+    "move% 240 450 100"
+  ],
+  "2": [
+    "OK.",
+    "move% 50 450 100"
+  ],
+  "3": [
+    "K",
+    "move% 452 450 50"
+  ],
+  "4": [
+    "Huh?",
+    "Where are we?",
+    "What was that?",
+    "speaker% Andre"
+  ],
+  "5": [
+    "That was quite the acid trip.",
+    "speaker% Leslie"
+  ],
+  "6": [
+    "Guys! This looks like a maze of some sort.",
+    "unlock% Let's split up... try to find a way out of here."
+  ]
+}
