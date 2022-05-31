@@ -91,10 +91,11 @@ class ServerMap(engine.servermap.ServerMap):
             # if player using special action
             elif currentAct == 's':
                 self.setSpriteSpeechText(sprite, "acted specially", time.perf_counter() + 2)
-        self.currentTurn += 1
-        if self.currentTurn > 2:
-            self.currentTurn = 0
-            self.turnDone = True
+
+            self.currentTurn += 1
+            if self.currentTurn > 2:
+                self.currentTurn = 0
+                self.turnDone = True
 
     def triggerAttack(self, trigger, sprite):
         """BATTLE ACTION MECHANIC: triggerAttack method.
@@ -102,7 +103,7 @@ class ServerMap(engine.servermap.ServerMap):
         Prompt player to attack and perform attack if sprite requests action.
         """
         if not self.turnDone:
-            #if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
+            if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
                 self.setSpriteSpeechText(sprite, "Press space to attack")
                 self.act(self, sprite, 'a')
 
@@ -113,7 +114,7 @@ class ServerMap(engine.servermap.ServerMap):
         Prompt player to defend and perform defense if sprite requests action.
         """
         if not self.turnDone:
-            #if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
+            if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
                 self.setSpriteSpeechText(sprite, "Press space to defend")
                 self.act(self, sprite, 'd')
     
@@ -124,14 +125,14 @@ class ServerMap(engine.servermap.ServerMap):
         requests action.
         """
         if not self.turnDone:
-            #if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
+            if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
                 self.setSpriteSpeechText(sprite, "Press space to use special action")
                 self.act(self, sprite, 's')
     
     ########################################################
     # TURN MECHANIC
     ########################################################
-    def stepMapStartBattle(self): #was stepMapStartEnemy
+    def stepMapStartBattle(self):
         for sprite in self['sprites']:
             if sprite['name'] == "enemy":
                 self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
