@@ -20,12 +20,13 @@ class ServerMap(engine.servermap.ServerMap):
     LOADING DIALOG JSON FILES
         Loads strings of text stored as a json file
     """
-
+    
     # GLOBAL CLASS VARIABLES
     dialog1 = "empty" #do not alter this under any circumstance
     inDialog = False
     dialogCounter = 0
     dialogComplete = []
+    dialogCompleteCounter = 0
     canMove = True # used to enable and disable mouse click
     currentSpeaker = "Eric"
 
@@ -56,7 +57,8 @@ class ServerMap(engine.servermap.ServerMap):
         self.dialogComplete = []
         for i in self.dialog1:
             self.dialogComplete.append(False)
-        
+    
+    """
     def freeze(self, sprite):      
         #Change the sprite's moveSpeed to zero.
         # if sprite is moving, cancel the movement by setting speed to 0.
@@ -70,61 +72,60 @@ class ServerMap(engine.servermap.ServerMap):
                 if "move" in sprite and sprite['move']['type'] == "Linear":
                     sprite['move']['s'] = sprite['speedMultiNormalSpeed']
                 del sprite['speedMultiNormalSpeed']
+    """
 
-    def triggerSayhello(self, trigger, sprite):
-        self.setSpriteSpeechText(sprite, "I seem to have gotten wet.")
+    # this function continuously runs, making the cutscene work
+    def triggerCutscene(self, trigger, sprite):
+        if (self.inDialog):
+            name = sprite["name"]
+            if (name == self.currentSpeaker):
+                self.speak(sprite, self.dialogCompleteCounter)
+                if "action" in sprite:
+                    self.dialogCounter += 1
     
     # this function is fired whenever a player steps onto a dialog box
     def triggerDialog(self, trigger, sprite):
+        id = trigger['prop-id']
+        if not self.dialogComplete[id]:
+            self.setMoveLinear(sprite, sprite['anchorX'], sprite['anchorY'], 100)
+            self.inDialog = True
+            self.dialogComplete[id] = True
+    
+    # corollary function. Does the same thing as trigger Dialog, but only IF a specific sprite steps on it
+    # AND it is currently their turn
+    def triggerSpecificdialog(self, trigger, sprite):
         name = sprite["name"]
-        if (name == self.currentSpeaker):
-            id = trigger['prop-id']
-            if not self.dialogComplete[id]:
-                self.freeze(sprite)
-                if not self.inDialog and (self.dialogCounter == 0):
-                    self.inDialog = True
-                elif not self.inDialog and (self.dialogCounter != 0):
-                    self.unfreeze(sprite)
-                    self.dialogCounter = 0
-                    self.dialogComplete[id] = True
-                    self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
-                    self.delSpriteSpeechText(sprite)
-                else: 
-                    self.speak(sprite, id)
-                    if "action" in sprite:
-                        self.dialogCounter += 1
+        if (name == trigger['prop-name']) and (self.currentSpeaker == name):
+            self.triggerDialog(trigger, sprite)
 
     """counts the dialog progression and executes dialog.
     dialog is complete when all lines in the array have been said, so dialogcounter == array.length"""
     def speak(self, sprite, id):
         text = []
-        for i in self.dialog1[str(id + 1)]:
+        for i in self.dialog1[str(id)]:
             text.append(i)
-        if (self.dialogCounter >= len(text)):
+        t = text[self.dialogCounter]
+        if (self.dialogCounter >= len(text) - 1) or ("end%" in t): 
             self.inDialog = False
-        elif("move%" in text[self.dialogCounter]):
-            self.inDialog = False
-            t = text[self.dialogCounter].split(" ")
+            self.dialogCompleteCounter += 1
+            self.dialogCounter = 0
+            self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
+            self.delSpriteSpeechText(sprite)
+        elif("move%" in t):
+            t = t.split(" ")
             self.setMoveLinear(sprite, int(t[1]), int(t[2]), int(t[3]))
-            self.unfreeze(sprite)
-            self.dialogCounter = 0
-            self.dialogComplete[id] = True
-        elif ("speaker%" in text[self.dialogCounter]):
-            t = text[self.dialogCounter].split(" ")
-            print(t)
-            print(t[1])
+            self.dialogCounter += 1
+        elif ("speaker%" in t):
+            t = t.split(" ")
             self.currentSpeaker = t[1]
-            self.unfreeze(sprite)
-            self.dialogCounter = 0
-            self.dialogComplete[id] = True
-        else: 
-            t = text[self.dialogCounter]
-            if("unlock%" in t):
-                self.canMove = True
-                t = t.split("unlock% ")[1]
-            elif("lock%" in t):
-                self.canMove = False
-                t = t.split("lock% ")[1]
+            self.dialogCounter += 1
+        elif("unlock%" in t): 
+            self.canMove = True
+            self.dialogCounter += 1
+        elif("lock%" in t):
+            self.canMove = False
+            self.dialogCounter += 1
+        else:
             self.setSpriteSpeechText(sprite, t)
 
     def getMovability(self):

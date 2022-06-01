@@ -140,17 +140,6 @@
                  "y":384.666666666667
                 }, 
                 {
-                 "height":77.1756939942241,
-                 "id":32,
-                 "name":"",
-                 "rotation":0,
-                 "type":"sayhello",
-                 "visible":true,
-                 "width":61.3897565863146,
-                 "x":128.62615665704,
-                 "y":289.993516826781
-                }, 
-                {
                  "height":29.2332174220546,
                  "id":33,
                  "name":"",
@@ -168,38 +157,37 @@
                  "y":321.5653916426
                 }, 
                 {
-                 "height":48.3333333333333,
-                 "id":34,
+                 "height":470.654800495079,
+                 "id":40,
+                 "name":"",
+                 "rotation":0,
+                 "type":"cutscene",
+                 "visible":true,
+                 "width":464.808157010668,
+                 "x":7.01597218129309,
+                 "y":2.33865739376435
+                }, 
+                {
+                 "height":81.2683444333117,
+                 "id":41,
                  "name":"",
                  "properties":[
                         {
                          "name":"id",
                          "type":"int",
                          "value":1
-                        }],
-                 "rotation":0,
-                 "type":"dialog",
-                 "visible":true,
-                 "width":49,
-                 "x":264,
-                 "y":140
-                }, 
-                {
-                 "height":30.4025461189368,
-                 "id":36,
-                 "name":"",
-                 "properties":[
+                        }, 
                         {
-                         "name":"id",
-                         "type":"int",
-                         "value":2
+                         "name":"name",
+                         "type":"string",
+                         "value":"Eric"
                         }],
                  "rotation":0,
-                 "type":"dialog",
+                 "type":"specificdialog",
                  "visible":true,
-                 "width":29.8178817704957,
-                 "x":143.242765368067,
-                 "y":215.156480226322
+                 "width":63.1437496316379,
+                 "x":128.041492308599,
+                 "y":286.485530736135
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -208,7 +196,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":40,
+ "nextobjectid":42,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
