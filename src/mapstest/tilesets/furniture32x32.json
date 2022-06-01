@@ -1,0 +1,14 @@
+{ "columns":24,
+ "image":"..\/images\/ak&#039;s_assets.png",
+ "imageheight":672,
+ "imagewidth":768,
+ "margin":0,
+ "name":"furniture",
+ "spacing":0,
+ "tilecount":504,
+ "tiledversion":"2021.03.23",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":1.5
+}

@@ -3,10 +3,8 @@ import json
 import os
 from ctypes import windll
 import engine.geometry as geo
-import engine.client
 
 class ServerMap(engine.servermap.ServerMap):
-
     """Extends engine.servermap.ServerMap
 
     TRIGGER DIALOG MECHANIC
@@ -44,12 +42,21 @@ class ServerMap(engine.servermap.ServerMap):
 
     # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
-        filepath = self.getJsonPath("dialog", "1")
+        # find json file
+        dir_name = os.path.dirname(os.path.realpath(__file__))
+        base_filename = "1"
+        folder = "dialog"
+        filename_suffix = "json"
+        parent_path = os.path.join(dir_name, folder)
+        filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
+        print("Loading dialogs using the following path: " + filepath)
+
         if os.path.isfile(filepath):
-            print("file found")
+            print("file found!")
         else: 
             print("dialog josn file error.")
             quit()
+
         # Opening JSON file
         with open(filepath) as f:
             self.dialog1 = json.load(f)
