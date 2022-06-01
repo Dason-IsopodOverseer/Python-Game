@@ -3,10 +3,8 @@ import json
 import os
 from ctypes import windll
 import engine.geometry as geo
-import engine.client
 
 class ServerMap(engine.servermap.ServerMap):
-
     """Extends engine.servermap.ServerMap
 
     TRIGGER DIALOG MECHANIC
@@ -26,29 +24,25 @@ class ServerMap(engine.servermap.ServerMap):
     inDialog = False
     dialogCounter = 0
     dialogComplete = []
-    canMove = True # used to enable and disable mouse click
-    currentSpeaker = "Eric"
-
-    # loads a json file
-    def getJsonPath(self, folderName, fileName):
-        # find json file by formatting the name exactly
-        dir_name = os.path.dirname(os.path.realpath(__file__))
-        base_filename = fileName
-        folder = folderName
-        filename_suffix = "json"
-        parent_path = os.path.join(dir_name, folder)
-        filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
-        print("Loading json using the following path: " + filepath)
-        return filepath
+    canMove = True # used to enable and disable mouse click 
 
     # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
-        filepath = self.getJsonPath("dialog", "1")
+        # find json file
+        dir_name = os.path.dirname(os.path.realpath(__file__))
+        base_filename = "1"
+        folder = "dialog"
+        filename_suffix = "json"
+        parent_path = os.path.join(dir_name, folder)
+        filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
+        print("Loading dialogs using the following path: " + filepath)
+
         if os.path.isfile(filepath):
-            print("file found")
+            print("file found!")
         else: 
             print("dialog josn file error.")
             quit()
+
         # Opening JSON file
         with open(filepath) as f:
             self.dialog1 = json.load(f)
@@ -56,7 +50,7 @@ class ServerMap(engine.servermap.ServerMap):
         self.dialogComplete = []
         for i in self.dialog1:
             self.dialogComplete.append(False)
-        
+
     def freeze(self, sprite):      
         #Change the sprite's moveSpeed to zero.
         # if sprite is moving, cancel the movement by setting speed to 0.
@@ -76,23 +70,21 @@ class ServerMap(engine.servermap.ServerMap):
     
     # this function is fired whenever a player steps onto a dialog box
     def triggerDialog(self, trigger, sprite):
-        name = sprite["name"]
-        if (name == self.currentSpeaker):
-            id = trigger['prop-id']
-            if not self.dialogComplete[id]:
-                self.freeze(sprite)
-                if not self.inDialog and (self.dialogCounter == 0):
-                    self.inDialog = True
-                elif not self.inDialog and (self.dialogCounter != 0):
-                    self.unfreeze(sprite)
-                    self.dialogCounter = 0
-                    self.dialogComplete[id] = True
-                    self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
-                    self.delSpriteSpeechText(sprite)
-                else: 
-                    self.speak(sprite, id)
-                    if "action" in sprite:
-                        self.dialogCounter += 1
+        id = trigger['prop-id']
+        if not self.dialogComplete[id]:
+            self.freeze(sprite)
+            if not self.inDialog and (self.dialogCounter == 0):
+                self.inDialog = True
+            elif not self.inDialog and (self.dialogCounter != 0):
+                self.unfreeze(sprite)
+                self.dialogCounter = 0
+                self.dialogComplete[id] = True
+                self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
+                self.delSpriteSpeechText(sprite)
+            else: 
+                self.speak(sprite, id)
+                if "action" in sprite:
+                    self.dialogCounter += 1
 
     """counts the dialog progression and executes dialog.
     dialog is complete when all lines in the array have been said, so dialogcounter == array.length"""
@@ -102,19 +94,13 @@ class ServerMap(engine.servermap.ServerMap):
             text.append(i)
         if (self.dialogCounter >= len(text)):
             self.inDialog = False
-        elif("move%" in text[self.dialogCounter]):
+        elif("move%" in  text[self.dialogCounter]):
             self.inDialog = False
             t = text[self.dialogCounter].split(" ")
             self.setMoveLinear(sprite, int(t[1]), int(t[2]), int(t[3]))
             self.unfreeze(sprite)
             self.dialogCounter = 0
             self.dialogComplete[id] = True
-        elif ("speaker%" in text[self.dialogCounter]):
-            t = text[self.dialogCounter].split(" ")
-            self.currentSpeaker = t[1]
-            self.unfreeze(sprite)
-            self.dialogCounter = 0
-            self.dialogComplete[id] = True    
         else: 
             t = text[self.dialogCounter]
             if("unlock%" in t):

@@ -24,10 +24,8 @@ class ServerMap(engine.servermap.ServerMap):
     """
     turnDone = False
     eTurnEndTime = 0
+
     enemyHealth = 100
-    eHealth = 30
-    aHealth = 40
-    lHealth = 25
     enemyDmgMult = 1
     eDefending = False
     aDefending = False
@@ -40,10 +38,14 @@ class ServerMap(engine.servermap.ServerMap):
     lDefMult = .60
     enAttacked = False
     currentTurn = 0
+    players = {
+        "Eric" : 30,
+        "Andre" : 45,
+        "Leslie" : 25
+    }
 
     def getMovability(self):
         return True
-
     ########################################################
     # BATTLE ACTION MECHANIC
     ########################################################
@@ -57,8 +59,6 @@ class ServerMap(engine.servermap.ServerMap):
         """
         if "action" in sprite and not self.turnDone:
             self.delSpriteAction(sprite)
-
-            # if player attacking
             if currentAct == 'a':
                 damage = random.randrange(8, 12)
 
@@ -69,16 +69,8 @@ class ServerMap(engine.servermap.ServerMap):
                 elif (sprite["name"] == "Leslie"):
                     damage *= self.lDmgMult
 
+
                 self.setSpriteSpeechText(sprite, "attacked", time.perf_counter() + 2)
-                
-                n = random.randrange(1, 20)
-                if (n > 3):
-                    self.enemyHealth -= damage
-                    if (n == 20):
-                        self.enemyHealth -= random.randRange(5, 7)
-                        self.setSpriteSpeechText(sprite, "critical hit!", time.perf_counter() + 1)
-            
-            # if player defending
             elif currentAct == 'd':
                 self.setSpriteSpeechText(sprite, "defended", time.perf_counter() + 2)
                 if (sprite["name"] == "Andre"):
@@ -109,6 +101,7 @@ class ServerMap(engine.servermap.ServerMap):
 
     
     def triggerDefend(self, trigger, sprite):
+        log("working")
         """BATTLE ACTION MECHANIC: triggerDefend method.
 
         Prompt player to defend and perform defense if sprite requests action.
@@ -132,34 +125,35 @@ class ServerMap(engine.servermap.ServerMap):
     ########################################################
     # TURN MECHANIC
     ########################################################
+
     def stepMapStartBattle(self):
         for sprite in self['sprites']:
             if sprite['name'] == "enemy":
-                self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
                 if self.turnDone:
                     #text now working, only disappears if player sprite is moving (?)
                     self.setSpriteSpeechText(sprite, "he he he haw", time.perf_counter() + 0.1)
-                    
+
                     if self.eTurnEndTime == 0:
                         self.eTurnEndTime = time.perf_counter() + 2
-
-                    # if enemy's turn is done
                     elif time.perf_counter() > self.eTurnEndTime:
+
                         if not self.enAttacked:
-                            x = random.randrange(0, 2) #determining target of attack
+                            x = random.randrange(0, len(self.players) - 1) #determining target of attack
                             damage = random.randrange(5, 7)*self.enemyDmgMult
-                            if (x == 0): # eric attacked
+                            target = list(self.players)[x]
+                            if(target == "Eric"): # eric attacked
                                 if self.eDefending:
                                     damage *= self.eDefMult
-                                self.eHealth -= damage
-                            elif (x == 1): # andre attacked
+                            elif (target == "Andre"): # andre attacked
                                 if self.aDefending:
                                     damage *= self.aDefMult
-                                self.aHealth -= damage
-                            elif (x == 1): # leslie attacked
+                            elif (target == "Leslie"): # leslie attacked
                                 if self.lDefending:
                                     damage *= self.lDefMult
-                                self.aHealth -= damage
+                            
+                            self.players[target] -= damage
+                            if self.players[target] <= 0:
+                                del self.players[target]
                         
                         
                         # reset all the stuff
@@ -172,9 +166,34 @@ class ServerMap(engine.servermap.ServerMap):
                         self.lDefending = False
 
             elif sprite['name'] == "Eric":
-                self.setSpriteLabelText(sprite, "health: " + str(self.eHealth))
+                if "Eric" in self.players:
+                    self.setSpriteLabelText(sprite, "health: " + str(self.players["Eric"]))
+                else:
+                    self.setSpriteLabelText(sprite, "x_x")
+                    self.freeze(sprite)
             elif sprite['name'] == "Andre":
-                self.setSpriteLabelText(sprite, "Health: " + str(self.aHealth))
+                if "Andre" in self.players:
+                    self.setSpriteLabelText(sprite, "Health: " + str(self.players["Andre"]))
+                else:
+                    self.setSpriteLabelText(sprite, "x_x")
+                    self.freeze(sprite)
             elif sprite['name'] == "Leslie":
-                self.setSpriteLabelText(sprite, "Health: " + str(self.lHealth)) 
-                    
+                if "Leslie" in self.players:
+                    self.setSpriteLabelText(sprite, "Health: " + str(self.players["Leslie"]))
+                else:
+                    self.setSpriteLabelText(sprite, "x_x")
+                    self.freeze(sprite)
+
+    def freeze(self, sprite):      
+        #Change the sprite's moveSpeed to zero.
+        # if sprite is moving, cancel the movement by setting speed to 0.
+        if "move" in sprite and sprite['move']['type'] == "Linear":
+            sprite['speedMultiNormalSpeed'] = sprite['move']['s']
+            sprite['move']['s'] *= 0
+ 
+    def unfreeze(self, sprite):
+        #Reset the sprite's moveSpeed.
+        if "speedMultiNormalSpeed" in sprite:
+                if "move" in sprite and sprite['move']['type'] == "Linear":
+                    sprite['move']['s'] = sprite['speedMultiNormalSpeed']
+                del sprite['speedMultiNormalSpeed']
