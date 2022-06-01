@@ -1,28 +1,18 @@
 {
-  "1": [
-    "lock% Let's begin the game!",
-    "move% 240 450 100"
-  ],
-  "2": [
-    "OK.",
-    "move% 50 450 100"
-  ],
-  "3": [
-    "K",
-    "move% 452 450 50"
-  ],
-  "4": [
-    "Huh?",
-    "Where are we?",
-    "What was that?",
-    "speaker% Andre"
-  ],
-  "5": [
-    "That was quite the acid trip.",
-    "speaker% Leslie"
-  ],
-  "6": [
-    "Guys! This looks like a maze of some sort.",
-    "unlock% Let's split up... try to find a way out of here."
+  "0": [
+    "lock%",
+    "speaker% Eric",
+    "move% 240 420 100",
+    "speaker% Andre",
+    "This is indeed a big maze",
+    "Hello",
+    "Stuff",
+    "move% 167 427 100",
+    "speaker% Leslie",
+    "move% 200 420 100",
+    "You're right, it is!",
+    "Let's go explore this thing!",
+    "unlock%",
+    "end%"
   ]
 }

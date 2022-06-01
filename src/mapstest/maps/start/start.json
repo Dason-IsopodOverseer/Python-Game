@@ -54,42 +54,6 @@
                  "width":32,
                  "x":751.333333333333,
                  "y":37.6666666666667
-                }, 
-                {
-                 "gid":30401,
-                 "height":22.25,
-                 "id":136,
-                 "name":"Andre",
-                 "rotation":0,
-                 "type":"Player",
-                 "visible":true,
-                 "width":12.5,
-                 "x":24.75,
-                 "y":415.666666666667
-                }, 
-                {
-                 "gid":30402,
-                 "height":21,
-                 "id":137,
-                 "name":"Eric",
-                 "rotation":0,
-                 "type":"player",
-                 "visible":true,
-                 "width":11,
-                 "x":26.25,
-                 "y":413.916666666667
-                }, 
-                {
-                 "gid":30403,
-                 "height":21.25,
-                 "id":138,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":11.5,
-                 "x":26.5,
-                 "y":414.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1447,6 +1411,34 @@
                  "width":25.75,
                  "x":757.5,
                  "y":358.416666666667
+                }, 
+                {
+                 "height":112.666666666667,
+                 "id":149,
+                 "name":"",
+                 "rotation":0,
+                 "type":"cutscene",
+                 "visible":true,
+                 "width":198,
+                 "x":17.5,
+                 "y":350.166666666667
+                }, 
+                {
+                 "height":32,
+                 "id":151,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"dialog",
+                 "visible":true,
+                 "width":64,
+                 "x":89.5,
+                 "y":411.833333333333
                 }],
          "offsetx":0.5,
          "offsety":-11.5,
@@ -1457,7 +1449,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":147,
+ "nextobjectid":153,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2021.03.23",
