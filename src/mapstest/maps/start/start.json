@@ -40,29 +40,6 @@
         }, 
         {
          "draworder":"topdown",
-         "id":8,
-         "name":"sprites",
-         "objects":[
-                {
-                 "gid":4168,
-                 "height":32,
-                 "id":132,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":751.333333333333,
-                 "y":37.6666666666667
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
          "id":3,
          "name":"outOfBounds",
          "objects":[
@@ -1413,32 +1390,32 @@
                  "y":358.416666666667
                 }, 
                 {
-                 "height":112.666666666667,
-                 "id":149,
+                 "height":108,
+                 "id":148,
                  "name":"",
                  "rotation":0,
                  "type":"cutscene",
                  "visible":true,
-                 "width":198,
-                 "x":17.5,
-                 "y":350.166666666667
+                 "width":203,
+                 "x":6.16666666666666,
+                 "y":343.833333333333
                 }, 
                 {
-                 "height":32,
-                 "id":151,
+                 "height":42.6666666666666,
+                 "id":149,
                  "name":"",
                  "properties":[
                         {
                          "name":"id",
                          "type":"int",
-                         "value":0
+                         "value":1
                         }],
                  "rotation":0,
                  "type":"dialog",
                  "visible":true,
-                 "width":64,
-                 "x":89.5,
-                 "y":411.833333333333
+                 "width":98.6666666666667,
+                 "x":86.8333333333333,
+                 "y":401.5
                 }],
          "offsetx":0.5,
          "offsety":-11.5,
@@ -1449,7 +1426,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":153,
+ "nextobjectid":150,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2021.03.23",
