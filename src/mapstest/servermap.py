@@ -13,10 +13,6 @@ class ServerMap(engine.servermap.ServerMap):
         Allows cutscenes with text to be shown. Text can be advanced by player input (currently only spacebar at the moment, 
         I don't know how to get  anything else).
     
-    FREEZE AND UNFREEZE MECHANIC
-        Set speed of character to zero when needed, and unfreeze if required. Used as part of 
-        dialog cutscenes.
-
     LOADING DIALOG JSON FILES
         Loads strings of text stored as a json file
     """
