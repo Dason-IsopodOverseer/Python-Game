@@ -1510,11 +1510,11 @@
                  "visible":true,
                  "width":0,
                  "x":768,
-                 "y":415.916666666667
+                 "y":381.416666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -1524,46 +1524,40 @@
          "name":"triggers",
          "objects":[
                 {
-                 "height":39.25,
+                 "height":31.25,
                  "id":130,
                  "name":"",
                  "properties":[
                         {
                          "name":"destMapName",
                          "type":"string",
-                         "value":"battle1"
+                         "value":"bedroom"
                         }, 
                         {
                          "name":"destReference",
                          "type":"string",
-                         "value":"westdoor"
+                         "value":"carpet"
                         }],
                  "rotation":0,
                  "type":"mapDoor",
                  "visible":true,
-                 "width":49.75,
-                 "x":744.666666666667,
-                 "y":393.25
+                 "width":25.75,
+                 "x":757.5,
+                 "y":358.416666666667
                 }, 
                 {
                  "height":108,
                  "id":148,
                  "name":"",
-                 "properties":[
-                        {
-                         "name":"id",
-                         "type":"int",
-                         "value":1
-                        }],
                  "rotation":0,
                  "type":"cutscene",
                  "visible":true,
-                 "width":258,
+                 "width":203,
                  "x":6.16666666666666,
                  "y":343.833333333333
                 }, 
                 {
-                 "height":45,
+                 "height":42.6666666666666,
                  "id":149,
                  "name":"",
                  "properties":[
@@ -1575,43 +1569,9 @@
                  "rotation":0,
                  "type":"dialog",
                  "visible":true,
-                 "width":52.3333333333334,
-                 "x":116.833333333333,
-                 "y":400.166666666667
-                }, 
-                {
-                 "height":55,
-                 "id":152,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"id",
-                         "type":"int",
-                         "value":2
-                        }],
-                 "rotation":0,
-                 "type":"selfdialog",
-                 "visible":true,
-                 "width":92.6666666666667,
-                 "x":686.833333333333,
-                 "y":442.5
-                }, 
-                {
-                 "height":113.333333333333,
-                 "id":155,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"id",
-                         "type":"int",
-                         "value":2
-                        }],
-                 "rotation":0,
-                 "type":"cutscene",
-                 "visible":true,
-                 "width":157.666666666667,
-                 "x":646.5,
-                 "y":413.166666666667
+                 "width":98.6666666666667,
+                 "x":86.8333333333333,
+                 "y":401.5
                 }],
          "offsetx":0.5,
          "offsety":-11.5,
@@ -1622,7 +1582,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":158,
+ "nextobjectid":150,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
