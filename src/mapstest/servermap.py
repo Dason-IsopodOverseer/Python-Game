@@ -18,11 +18,12 @@ class ServerMap(engine.servermap.ServerMap):
     
     # GLOBAL CLASS VARIABLES
     dialog1 = "empty" #do not alter this under any circumstance
-    inDialog = False
-    dialogCounter = 0
-    dialogComplete = []
+    inDialog = False # true if the characters are in dialog
+    dialogCounter = 0 # incrementer used to prgress dialog
+    dialogComplete = [] # prevents idalog from re-triggering on same map
     canMove = True # used to enable and disable mouse click
-    currentSpeaker = "Eric"
+    currentSpeaker = "Eric" # used to store current player
+    enemySpeaker = False # true if the current speaker is an enemy
 
     # loads a json file
     def getJsonPath(self, folderName, fileName):
@@ -76,7 +77,10 @@ class ServerMap(engine.servermap.ServerMap):
                 self.speak(sprite, id)
                 if "action" in sprite:
                     self.dialogCounter += 1
-    
+            elif(self.enemySpeaker):
+                if "action" in sprite:
+                    self.dialogCounter += 1
+
     # this function is fired whenever a player steps onto a dialog box
     def triggerDialog(self, trigger, sprite):
         id = trigger['prop-id']
@@ -116,6 +120,10 @@ class ServerMap(engine.servermap.ServerMap):
             self.dialogCounter += 1
         elif ("speaker%" in t):
             t = t.split(" ")
+            if t[1] != "Eric" and t[1] != "Andre" and t[1] != "Leslie":
+                self.enemySpeaker = True
+            else:
+                self.enemySpeaker = False
             self.currentSpeaker = t[1]
             self.dialogCounter += 1
         elif("unlock%" in t): 

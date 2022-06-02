@@ -89,7 +89,6 @@
         {
          "draworder":"topdown",
          "id":6,
-         "locked":true,
          "name":"sprites",
          "objects":[
                 {
@@ -127,6 +126,18 @@
                  "width":19.5,
                  "x":144,
                  "y":228
+                }, 
+                {
+                 "gid":1854,
+                 "height":32,
+                 "id":26,
+                 "name":"Spectre",
+                 "rotation":0,
+                 "type":"enemy",
+                 "visible":true,
+                 "width":32,
+                 "x":103.573289326339,
+                 "y":161.600282902104
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -137,6 +148,7 @@
         {
          "draworder":"topdown",
          "id":5,
+         "locked":true,
          "name":"triggers",
          "objects":[
                 {
@@ -204,6 +216,7 @@
         {
          "draworder":"topdown",
          "id":4,
+         "locked":true,
          "name":"reference",
          "objects":[
                 {
@@ -227,6 +240,7 @@
         {
          "draworder":"topdown",
          "id":9,
+         "locked":true,
          "name":"outOfBounds",
          "objects":[
                 {
@@ -247,7 +261,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":26,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
@@ -276,6 +290,10 @@
         {
          "firstgid":764,
          "source":"..\/..\/tilesets\/InteriorExtended.json"
+        }, 
+        {
+         "firstgid":1788,
+         "source":"..\/..\/tilesets\/dungeon2.json"
         }],
  "tilewidth":32,
  "type":"map",
