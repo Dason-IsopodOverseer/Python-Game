@@ -1,0 +1,14 @@
+{ "columns":3,
+ "image":"..\/images\/tilesetformattedupdate1.png",
+ "imageheight":192,
+ "imagewidth":112,
+ "margin":0,
+ "name":"morebedroom",
+ "spacing":0,
+ "tilecount":18,
+ "tiledversion":"2021.03.23",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":1.5
+}

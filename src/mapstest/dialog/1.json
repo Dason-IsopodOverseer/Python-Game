@@ -1,0 +1,30 @@
+{
+  "0":[
+    "lock%",
+    "Man, I sure do love League of Legends and Genshin Impact! What a good way to spend my time.",
+    "Hmm? Who could it be? I guess I’ll go open that.",
+    "speaker% Andre",
+    "move% 400 150 200",
+    "speaker% Leslie",
+    "move% 400 150 200",
+    "unlock%",
+    "end%"
+  ],
+  "1": [
+    "Huh?",
+    "Where are we?",
+    "What was that?",
+    "speaker% Andre",
+    "That was quite the acid trip.",
+    "speaker% Leslie",
+    "Guys! Look! ",
+    "Who the hell is that?",
+    "C’mon! We should ask that person for directions!",
+    "speaker% Eric",
+    "But… um, why is he running?",
+    "speaker% Andre",
+    "Fear not, I, Andre, shall tackle him like a lineman",
+    "Ha! Clearly, this fiend was no match for Andre’s swole body.",
+    "speaker% CLC"
+  ]
+}
