@@ -12,22 +12,62 @@
         {
          "animation":[
                 {
-                 "duration":150,
-                 "tileid":1532
+                 "duration":300,
+                 "tileid":64
                 }, 
                 {
-                 "duration":150,
-                 "tileid":1533
+                 "duration":300,
+                 "tileid":65
                 }, 
                 {
-                 "duration":150,
-                 "tileid":1534
+                 "duration":300,
+                 "tileid":66
+                }, 
+                {
+                 "duration":300,
+                 "tileid":67
+                }, 
+                {
+                 "duration":300,
+                 "tileid":68
+                }, 
+                {
+                 "duration":300,
+                 "tileid":69
                 }, 
                 {
                  "duration":30,
+                 "tileid":70
+                }],
+         "id":70
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":0,
+                 "tileid":725
+                }, 
+                {
+                 "duration":300,
+                 "tileid":675
+                }],
+         "id":675
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":300,
+                 "tileid":1532
+                }, 
+                {
+                 "duration":300,
+                 "tileid":1533
+                }, 
+                {
+                 "duration":300,
                  "tileid":1534
                 }],
-         "id":1534
+         "id":1532
         }],
  "tilewidth":32,
  "type":"tileset",
