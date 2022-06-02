@@ -54,6 +54,7 @@ class ServerMap(engine.servermap.ServerMap):
             self.setSpriteSpeechText(sprite, "Press space to attack")
             self.act(self, sprite, 'a')
 
+    
     def triggerDefend(self, trigger, sprite):
         """BATTLE ACTION MECHANIC: triggerDefend method.
 

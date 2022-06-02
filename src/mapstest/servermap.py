@@ -21,6 +21,7 @@ class ServerMap(engine.servermap.ServerMap):
     inDialog = False
     dialogCounter = 0
     dialogComplete = []
+    dialogCompleteCounter = 0
     canMove = True # used to enable and disable mouse click
     currentSpeaker = "Eric"
 
@@ -33,15 +34,16 @@ class ServerMap(engine.servermap.ServerMap):
         filename_suffix = "json"
         parent_path = os.path.join(dir_name, folder)
         filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
+        print("Loading json using the following path: " + filepath)
         return filepath
-    
+
     # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
         filepath = self.getJsonPath("dialog", "1")
         if os.path.isfile(filepath):
             print("file found")
         else: 
-            print("dialog json file error.")
+            print("dialog josn file error.")
             quit()
         # Opening JSON file
         with open(filepath) as f:
@@ -69,11 +71,10 @@ class ServerMap(engine.servermap.ServerMap):
 
     # this function continuously runs, making the cutscene work
     def triggerCutscene(self, trigger, sprite):
-        id = trigger['prop-id']
         if (self.inDialog):
             name = sprite["name"]
             if (name == self.currentSpeaker):
-                self.speak(sprite, id)
+                self.speak(sprite, self.dialogCompleteCounter)
                 if "action" in sprite:
                     self.dialogCounter += 1
     
@@ -91,12 +92,6 @@ class ServerMap(engine.servermap.ServerMap):
         name = sprite["name"]
         if (name == trigger['prop-name']) and (self.currentSpeaker == name):
             self.triggerDialog(trigger, sprite)
-    
-    # corollary function. Does the same thing as trigger Dialog, but SETS THE CURRENT TURN TO THE SPRITE WHO FIRST HITS IT
-    def triggerSelfdialog(self, trigger, sprite):
-        name = sprite["name"]
-        self.currentSpeaker = name
-        self.triggerDialog(trigger, sprite)
 
     """counts the dialog progression and executes dialog.
     dialog is complete when all lines in the array have been said, so dialogcounter == array.length"""
@@ -107,6 +102,7 @@ class ServerMap(engine.servermap.ServerMap):
         t = text[self.dialogCounter]
         if (self.dialogCounter >= len(text) - 1) or ("end%" in t): 
             self.inDialog = False
+            self.dialogCompleteCounter += 1
             self.dialogCounter = 0
             self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
             self.delSpriteSpeechText(sprite)
@@ -123,14 +119,6 @@ class ServerMap(engine.servermap.ServerMap):
             self.dialogCounter += 1
         elif("lock%" in t):
             self.canMove = False
-            self.dialogCounter += 1
-        elif("assemble%" in t):
-            currentX = sprite['anchorX']
-            currentY = sprite['anchorY']
-            # teleports all players to the current player's location
-            for sprite in self['sprites']:
-                if sprite['type'] == "player":
-                    self.setObjectLocationByAnchor(sprite, currentX, currentY)
             self.dialogCounter += 1
         else:
             self.setSpriteSpeechText(sprite, t)
