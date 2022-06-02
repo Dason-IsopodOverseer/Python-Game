@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"..\/images\/IMG_1087.PNG",
+ "imageheight":33,
+ "imagewidth":16,
+ "margin":0,
+ "name":"IMG_1087",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.8.5",
+ "tileheight":33,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.8"
+}
