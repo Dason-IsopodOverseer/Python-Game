@@ -12,7 +12,7 @@ Doug Bakewell
 - DungeonCrawl_ProjectUtunmoTileset.png is from https://opengameart.org/content/dungeon-crawl-32x32-tiles
 -ProjectUtunmoFull is from https://opengameart.org/content/dungeon-crawl-32x32-tiles
 -bedroom3 is from https://opengameart.org/content/interior-tileset-16x16
-
+-remainder of furniture is from https://opengameart.org/content/lpc-submissions-merged 
 
 ## Font Crdits
 
