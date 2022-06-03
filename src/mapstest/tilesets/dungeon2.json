@@ -12,58 +12,6 @@
         {
          "animation":[
                 {
-                 "duration":100,
-                 "tileid":47
-                }, 
-                {
-                 "duration":100,
-                 "tileid":48
-                }, 
-                {
-                 "duration":100,
-                 "tileid":49
-                }, 
-                {
-                 "duration":100,
-                 "tileid":50
-                }, 
-                {
-                 "duration":100,
-                 "tileid":51
-                }, 
-                {
-                 "duration":100,
-                 "tileid":53
-                }, 
-                {
-                 "duration":100,
-                 "tileid":54
-                }],
-         "id":54
-        }, 
-        {
-         "animation":[
-                {
-                 "duration":250,
-                 "tileid":77
-                }, 
-                {
-                 "duration":250,
-                 "tileid":75
-                }, 
-                {
-                 "duration":250,
-                 "tileid":76
-                }, 
-                {
-                 "duration":250,
-                 "tileid":75
-                }],
-         "id":77
-        }, 
-        {
-         "animation":[
-                {
                  "duration":150,
                  "tileid":1532
                 }, 
@@ -73,10 +21,6 @@
                 }, 
                 {
                  "duration":150,
-                 "tileid":1534
-                }, 
-                {
-                 "duration":30,
                  "tileid":1534
                 }],
          "id":1534
