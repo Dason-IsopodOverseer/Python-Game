@@ -1,43 +1,33 @@
-"""Extends Demo ClientMap to format dialog"""
+"""Extends Engine ClientMap to change map text"""
 
 import pygame
 from pygame.locals import *
-
 from engine.log import log
-import demo.clientmap
-
-
-class ClientMap(demo.clientmap.ClientMap):
-    """Extends demo.clientmap.ClientMap
-
-    This class makes the map render as black except where players
-    are standing. Where players are standing it is as if they are
-    holding a lantern, brighter closer to the player.
-    """
+import engine.clientmap
+class ClientMap(engine.clientmap.ClientMap):
+    """Extends engine.clientmap.ClientMap"""
 
     def __init__(self, tilesets, mapDir):
-        """Extends ___init__ and sets up darkness and light circle."""
+        """Extends ___init__ and updates text defaults."""
 
         super().__init__(tilesets, mapDir)
 
-        self['LIGHTRADIUS'] = 180
+        # defaults for map text
+        self['DEFAULTTEXT'].update({
+            'pixelsize': 15,
+            "color": (0, 0, 0, 255),
+            "bgcolor": (255, 255, 255, 150),
+            "halign": "center",
+            "bgbordercolor": (0, 0, 0, 150),
+            "bgborderThickness": 1,
+            "bgroundCorners": 5
+            })
 
-        # allocate darknessImage
-        self['darknessImage'] = pygame.Surface(
-            (self['width'] * self['tilewidth'], self['height'] * self['tileheight']),
-            pygame.SRCALPHA,
-            32)
-        self['darknessImage'] = self['darknessImage'].convert_alpha()
+        # labelText defaults that differ from DEFAULTTEXT
+        self['LABELTEXT'].update({
+            'pixelsize': 12,
+            "color": (0, 0, 0, 200),
+            "bgcolor": (0, 0, 0, 0),
+            "bgbordercolor": (0, 0, 0, 0)
+            })
 
-        # allocate and draw lightCircleImage
-        self['lightCircleImage'] = pygame.Surface(
-            (self['LIGHTRADIUS'] * 2, self['LIGHTRADIUS'] * 2), pygame.SRCALPHA, 32)
-        self['lightCircleImage'] = self['lightCircleImage'].convert_alpha()
-        self['lightCircleImage'].fill((0, 0, 0, 0))
-        for i in range(255, 0, -5):
-            pygame.draw.circle(
-                self['lightCircleImage'],
-                color=(0, 0, 0, 255 - i),  # set the pixel values to subtract during blitMap() below.
-                center=(self['LIGHTRADIUS'], self['LIGHTRADIUS']),
-                radius=i / 255.0 * self['LIGHTRADIUS']
-                )

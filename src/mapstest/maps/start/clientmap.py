@@ -1,13 +1,13 @@
-"""Extends Demo ClientMap to add darkness and light circles for under map."""
+"""Extends ClientMap to add darkness and light circles for under map."""
 
 import pygame
 from pygame.locals import *
 
 from engine.log import log
-import demo.clientmap
+import mapstest.clientmap
 
 
-class ClientMap(demo.clientmap.ClientMap):
+class ClientMap(mapstest.clientmap.ClientMap):
     """Extends demo.clientmap.ClientMap
 
     This class makes the map render as black except where players
