@@ -1,19 +1,24 @@
+# import all libraries
 import engine.servermap
 import json
 import os
 from ctypes import windll
 import engine.geometry as geo
 import engine.client
+from playsound import playsound # make sure you import playsound using pip
+import pygame
 
 class ServerMap(engine.servermap.ServerMap):
 
     """Extends engine.servermap.ServerMap
     TRIGGER DIALOG MECHANIC
-        Allows cutscenes with text to be shown. Text can be advanced by player input (currently only spacebar at the moment, 
-        I don't know how to get  anything else).
+        Allows cutscenes with text to be shown. Text can be advanced by player input (currently only spacebar at the moment.
     
     LOADING DIALOG JSON FILES
         Loads strings of text stored as a json file
+    
+    LOADING MUSIC AND SOUND FILES
+        Loads music and plays them, can also be triggered by cutscene
     """
     
     # GLOBAL CLASS VARIABLES
@@ -24,21 +29,22 @@ class ServerMap(engine.servermap.ServerMap):
     canMove = True # used to enable and disable mouse click
     currentSpeaker = "Eric" # used to store current player
     enemySpeaker = False # true if the current speaker is an enemy
+    currentMusic = ""
 
     # loads a json file
-    def getJsonPath(self, folderName, fileName):
+    def getFilePath(self, folderName, fileName, fileExtension):
         # find json file by formatting the name exactly
         dir_name = os.path.dirname(os.path.realpath(__file__))
         base_filename = fileName
         folder = folderName
-        filename_suffix = "json"
+        filename_suffix = fileExtension
         parent_path = os.path.join(dir_name, folder)
         filepath = os.path.join(parent_path, base_filename + "." + filename_suffix)
         return filepath
     
     # initializes all class variables essential for cutscene dialogs
     def initDialogs(self):
-        filepath = self.getJsonPath("dialog", "1")
+        filepath = self.getFilePath("dialog", "1", "json")
         if os.path.isfile(filepath):
             print("file found")
         else: 
@@ -52,6 +58,10 @@ class ServerMap(engine.servermap.ServerMap):
         for i in self.dialog1:
             self.dialogComplete.append(False)
     
+    # loads pygame to prepare music files
+    def initMusic(self):
+        pygame.init()
+
     """
     def freeze(self, sprite):      
         #Change the sprite's moveSpeed to zero.
@@ -80,6 +90,26 @@ class ServerMap(engine.servermap.ServerMap):
             elif(self.enemySpeaker):
                 if "action" in sprite:
                     self.dialogCounter += 1
+    
+    # sound can be triggered as part of a cutscene
+    def playSound(self, name, extension):
+        filepath = self.getFilePath("sounds", name, extension)
+        print(filepath)
+        soundObj = pygame.mixer.Sound(filepath)
+        soundObj.play()
+
+    # music can be triggered as part of a cutscene
+    def playMusic(self, name, extension):
+        if (self.currentMusic != ""):
+            self.currentMusic.stop()
+        filepath = self.getFilePath("music", name, extension)
+        soundObj = pygame.mixer.Sound(filepath)
+        self.currentMusic = soundObj
+        soundObj.play(-1)
+    
+    def stopMusic(self):
+        self.currentMusic.stop()
+        self.currentMusic = ""
 
     # this function is fired whenever a player steps onto a dialog box
     def triggerDialog(self, trigger, sprite):
@@ -139,6 +169,17 @@ class ServerMap(engine.servermap.ServerMap):
             for sprite in self['sprites']:
                 if sprite['type'] == "player":
                     self.setObjectLocationByAnchor(sprite, currentX, currentY)
+            self.dialogCounter += 1
+        elif("sound%" in t):
+            t = t.split(" ")
+            self.playSound(t[1], t[2])
+            self.dialogCounter += 1
+        elif("silence%" in t):
+            self.stopMusic()
+            self.dialogCounter += 1
+        elif("music%" in t):
+            t = t.split(" ")
+            self.playMusic(t[1], t[2])
             self.dialogCounter += 1
         else:
             self.setSpriteSpeechText(sprite, t)

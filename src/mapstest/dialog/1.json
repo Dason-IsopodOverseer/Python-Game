@@ -5,14 +5,17 @@
     "Hmm? Who could it be? I guess I shall go open that.",
     "speaker% Spectre",
     "BOO!",
+    "sound% surprise wav",
     "I am your asian parent.",
     "unlock%",
     "end%"
   ],
   "1": [
+    "music% surprise wav",
     "Huh?",
     "Where are we?",
     "What was that?",
+    "music% majora wav",
     "speaker% Andre",
     "That was quite the acid trip.",
     "speaker% Leslie",
@@ -27,6 +30,7 @@
     "I think I found the exit!",
     "It looks like a portal!",
     "assemble%",
+    "silence%",
     "unlock%",
     "end%"
   ]
