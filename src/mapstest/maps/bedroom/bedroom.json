@@ -92,16 +92,16 @@
                  "y":228
                 }, 
                 {
-                 "gid":1854,
+                 "gid":7868,
                  "height":32,
-                 "id":26,
+                 "id":27,
                  "name":"Ghost",
                  "rotation":0,
                  "type":"enemy",
                  "visible":true,
                  "width":32,
-                 "x":103.573289326339,
-                 "y":161.600282902104
+                 "x":106.962272938985,
+                 "y":161.319049836982
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -172,7 +172,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -222,7 +222,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":27,
+ "nextobjectid":28,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2021.03.23",
@@ -255,6 +255,10 @@
         {
          "firstgid":1788,
          "source":"..\/..\/tilesets\/dungeon2.json"
+        }, 
+        {
+         "firstgid":7868,
+         "source":"..\/..\/tilesets\/ghost_of.json"
         }],
  "tilewidth":32,
  "type":"map",
