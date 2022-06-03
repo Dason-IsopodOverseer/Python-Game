@@ -170,6 +170,7 @@
     "lock%",
     "move% 180 420 100",
     "Huh?",
+    "music% majora wav",
     "Where are we?",
     "What was that?",
     "speaker% Andre",
@@ -185,6 +186,7 @@
   "2": [
     "lock%",
     "Hey, guys!",
+    "silence%",
     "I think I found the exit!",
     "It looks like a portal!",
     "assemble%",
