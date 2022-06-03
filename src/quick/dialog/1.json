@@ -1,0 +1,52 @@
+{
+  "0": [
+    "begin?",
+    "speaker% Andre",
+    "move% 300 300 200",
+    "speaker% Eric",
+    "move% 300 300 200",
+    "speaker% Leslie",
+    "move% 300 300 200",
+    "end%"
+  ],
+  "1": [
+    "lock%",
+    "move% 180 420 100",
+    "Huh?",
+    "Where are we?",
+    "What was that?",
+    "speaker% Andre",
+    "move% 140 420 150",
+    "That was quite the acid trip. Am I high, or what?",
+    "speaker% Leslie",
+    "move% 100 420 100",
+    "This looks like a maze of some sort!",
+    "Let's split up and try to find the exit.",
+    "unlock%",
+    "end%"
+  ],
+  "2": [
+    "lock%",
+    "Hey, guys!",
+    "I think I found the exit!",
+    "It looks like a portal!",
+    "assemble%",
+    "unlock%",
+    "end%"
+  ],
+  "3": [
+    "lock%",
+    "Let's fight!",
+    "speaker% CLC",
+    "Mwa ha ha! Your grade dropped. Die.",
+    "teleport% 678 160",
+    "speaker% Eric",
+    "teleport% 490 86",
+    "speaker% Andre",
+    "teleport% 490 166",
+    "speaker% Leslie",
+    "teleport% 494 239",
+    "unlock%",
+    "end%"
+  ]
+}
