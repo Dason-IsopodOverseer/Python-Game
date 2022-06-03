@@ -1,11 +1,14 @@
 {
   "0": [
     "begin?",
+    "music% newchina wav",
     "speaker% Andre",
     "move% 300 300 200",
     "speaker% Eric",
     "move% 300 300 200",
     "speaker% Leslie",
+    "let's go then,",
+    "silence%",
     "move% 300 300 200",
     "end%"
   ],
@@ -36,6 +39,7 @@
   ],
   "3": [
     "lock%",
+    "music% majora wav",
     "Let's fight!",
     "Testing",
     "changing character!",
