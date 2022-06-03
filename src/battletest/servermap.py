@@ -146,44 +146,48 @@ class ServerMap(engine.servermap.ServerMap):
     def stepMapStartBattle(self):
         for sprite in self['sprites']:
             if sprite['name'] == "enemy":
-                self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
-                if self.turnDone:
-                    #text now working, only disappears if player sprite is moving (?)
-                    self.setSpriteSpeechText(sprite, "he he he haw", time.perf_counter() + 0.1)
+                if self.enemyHealth <= 0:
+                    self.setSpriteLabelText(sprite, "YAY U WIN :)")
+                    self.battleEnded = True
+                else:
+                    self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
+                    if self.turnDone:
+                        #text now working, only disappears if player sprite is moving (?)
+                        self.setSpriteSpeechText(sprite, "he he he haw", time.perf_counter() + 0.1)
 
-                    if self.eTurnEndTime == 0:
-                        self.eTurnEndTime = time.perf_counter() + 2
-                    elif time.perf_counter() > self.eTurnEndTime:
+                        if self.eTurnEndTime == 0:
+                            self.eTurnEndTime = time.perf_counter() + 2
+                        elif time.perf_counter() > self.eTurnEndTime:
 
-                        if not self.enAttacked:
-                            x = random.randrange(0, len(self.players)) #determining target of attack
-                            damage = random.randrange(5, 7)*self.enemyDmgMult
-                            target = list(self.players)[x]
-                            if(target == "Eric"): # eric attacked
-                                if self.eDefending:
-                                    damage *= self.eDefMult
-                            elif (target == "Andre"): # andre attacked
-                                if self.aDefending:
-                                    damage *= self.aDefMult
-                            elif (target == "Leslie"): # leslie attacked
-                                if self.lDefending:
-                                    damage *= self.lDefMult
+                            if not self.enAttacked:
+                                x = random.randrange(0, len(self.players)) #determining target of attack
+                                damage = random.randrange(5, 7)*self.enemyDmgMult
+                                target = list(self.players)[x]
+                                if(target == "Eric"): # eric attacked
+                                    if self.eDefending:
+                                        damage *= self.eDefMult
+                                elif (target == "Andre"): # andre attacked
+                                    if self.aDefending:
+                                        damage *= self.aDefMult
+                                elif (target == "Leslie"): # leslie attacked
+                                    if self.lDefending:
+                                        damage *= self.lDefMult
+                                
+                                self.players[target] -= damage
+                                if self.players[target] <= 0:
+                                    del self.players[target]
+                                
+                                #log(self.players[target] + " targeted")
                             
-                            self.players[target] -= damage
-                            if self.players[target] <= 0:
-                                del self.players[target]
                             
-                            #log(self.players[target] + " targeted")
-                        
-                        
-                        # reset all the stuff
-                        self.enAttacked = True
-                        self.eTurnEndTime = 0
-                        self.turnDone = False
-                        self.enAttacked = False
-                        self.eDefending = False
-                        self.aDefending = False
-                        self.lDefending = False
+                            # reset all the stuff
+                            self.enAttacked = True
+                            self.eTurnEndTime = 0
+                            self.turnDone = False
+                            self.enAttacked = False
+                            self.eDefending = False
+                            self.aDefending = False
+                            self.lDefending = False
 
             elif sprite['name'] == "Eric":
                 if "Eric" in self.players:

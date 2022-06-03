@@ -154,7 +154,7 @@
     "speaker% Ghost",
     "Yes, -most- horrible.",
     "Now go, students, and take back your futures!",
-    "Take back your university acceptances!", 
+    "Take back your university acceptances!",
     "Ha ha ha ha ha ha ha ha!",
     "speaker% Andre",
     "move% 300 300 200",
@@ -188,6 +188,21 @@
     "I think I found the exit!",
     "It looks like a portal!",
     "assemble%",
+    "unlock%",
+    "end%"
+  ],
+  "3": [
+    "lock%",
+    "Let's fight!",
+    "speaker% CLC",
+    "Mwa ha ha! Your grade dropped. Die.",
+    "teleport% 678 160",
+    "speaker% Eric",
+    "teleport% 490 86",
+    "speaker% Andre",
+    "teleport% 490 166",
+    "speaker% Leslie",
+    "teleport% 494 239",
     "unlock%",
     "end%"
   ]
