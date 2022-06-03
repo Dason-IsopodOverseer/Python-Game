@@ -198,6 +198,30 @@ class ServerMap(engine.servermap.ServerMap):
                 if sprite['type'] == "player":
                     self.setObjectLocationByAnchor(sprite, currentX, currentY)
             self.dialogCounter += 1
+        elif("assemblex%" in t):
+            currentX = sprite['anchorX']
+            currentY = sprite['anchorY']
+            n = 0
+            # teleports all players to the current player's location
+            for sprite in self['sprites']:
+                n = n + 10
+                if sprite['type'] == "player":
+                    self.setObjectLocationByAnchor(sprite, currentX + n, currentY)
+                    n = n - 30
+            n = 0
+            self.dialogCounter += 1
+        elif("assembley%" in t):
+            currentX = sprite['anchorX']
+            currentY = sprite['anchorY']
+            n = 0
+            # teleports all players to the current player's location
+            for sprite in self['sprites']:
+                n = n + 10
+                if sprite['type'] == "player":
+                    self.setObjectLocationByAnchor(sprite, currentX, currentY + n)
+                    n = n - 30
+            n = 0
+            self.dialogCounter += 1    
         elif("teleport%" in t):
             t = t.split(" ")
             # teleports the selected player to the specified location
@@ -213,6 +237,14 @@ class ServerMap(engine.servermap.ServerMap):
         elif("music%" in t):
             t = t.split(" ")
             self.playMusic(t[1], t[2])
+            self.dialogCounter += 1
+        elif("hide%" in t):
+            for sprite in self['sprites']:
+                if sprite['type'] == 'player':
+                    sprite['visible'] = False
+            self.dialogCounter += 1
+        elif("show%" in t):
+            sprite['visible'] = True
             self.dialogCounter += 1
         else:
             self.setSpriteSpeechText(sprite, t)

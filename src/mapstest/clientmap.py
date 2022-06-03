@@ -30,4 +30,11 @@ class ClientMap(engine.clientmap.ClientMap):
             "bgcolor": (0, 0, 0, 0),
             "bgbordercolor": (0, 0, 0, 0)
             })
+    def blitMap(self, destImage, offset, sprites):
+        """Extend blitMap() to remove sprites with 'visible' == False"""
 
+        # fancy way to iterate over a list and modify it at the same time. This only keeps sprites that evaluate to True
+        sprites = list(filter(lambda s: not ('visible' in s and s['visible'] == False), sprites))  
+
+        # render the map as normal
+        return super().blitMap(destImage, offset, sprites)
