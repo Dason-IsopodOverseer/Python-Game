@@ -281,47 +281,47 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/tilesets\/Terrain and Outside.json"
+         "source":"..\/..\/tilesets\/Terrain and Outside.json"
         }, 
         {
          "firstgid":1025,
-         "source":"..\/tilesets\/dungeon2.json"
+         "source":"..\/..\/tilesets\/dungeon2.json"
         }, 
         {
          "firstgid":7105,
-         "source":"..\/tilesets\/Outside Objects.json"
+         "source":"..\/..\/tilesets\/Outside Objects.json"
         }, 
         {
          "firstgid":8129,
-         "source":"..\/tilesets\/building1.json"
+         "source":"..\/..\/tilesets\/building1.json"
         }, 
         {
          "firstgid":8141,
-         "source":"..\/tilesets\/building2.json"
+         "source":"..\/..\/tilesets\/building2.json"
         }, 
         {
          "firstgid":8153,
-         "source":"..\/tilesets\/building3.json"
+         "source":"..\/..\/tilesets\/building3.json"
         }, 
         {
          "firstgid":8165,
-         "source":"..\/tilesets\/building4.json"
+         "source":"..\/..\/tilesets\/building4.json"
         }, 
         {
          "firstgid":8177,
-         "source":"..\/tilesets\/building5.json"
+         "source":"..\/..\/tilesets\/building5.json"
         }, 
         {
          "firstgid":8189,
-         "source":"..\/tilesets\/building6.json"
+         "source":"..\/..\/tilesets\/building6.json"
         }, 
         {
          "firstgid":8201,
-         "source":"..\/tilesets\/CLC_monster.json"
+         "source":"..\/..\/tilesets\/CLC_monster.json"
         }, 
         {
          "firstgid":8202,
-         "source":"..\/tilesets\/dungeon216x16.json"
+         "source":"..\/..\/tilesets\/dungeon216x16.json"
         }],
  "tilewidth":16,
  "type":"map",
