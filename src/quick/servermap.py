@@ -116,14 +116,13 @@ class ServerMap(engine.servermap.ServerMap):
                 self.speak(sprite, id)
                 if "action" in sprite:
                     self.dialogCounter += 1
-            elif(self.enemySpeaker):
+            if (self.enemySpeaker):
                 if "action" in sprite:
                     self.dialogCounter += 1
     
     # sound can be triggered as part of a cutscene
     def playSound(self, name, extension):
         filepath = self.getFilePath("sounds", name, extension)
-        print(filepath)
         soundObj = pygame.mixer.Sound(filepath)
         soundObj.play()
 
@@ -201,11 +200,9 @@ class ServerMap(engine.servermap.ServerMap):
             self.dialogCounter += 1
         elif("teleport%" in t):
             t = t.split(" ")
-            # teleports all players to the specified location
-            for sprite in self['sprites']:
-                if sprite['type'] == "player":
-                    self.setObjectLocationByAnchor(sprite, int(t[1]), int(t[2]))
-            self.dialogCounter += 1
+            # teleports the selected player to the specified location
+            self.setObjectLocationByAnchor(sprite, int(t[1]), int(t[2]))
+            self.dialogCounter += 1     
         elif("sound%" in t):
             t = t.split(" ")
             self.playSound(t[1], t[2])

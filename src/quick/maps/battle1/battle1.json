@@ -354,7 +354,7 @@
         {
          "draworder":"topdown",
          "id":13,
-         "name":"sprite",
+         "name":"sprites",
          "objects":[
                 {
                  "gid":30404,
@@ -377,6 +377,7 @@
         {
          "draworder":"topdown",
          "id":5,
+         "locked":true,
          "name":"triggers",
          "objects":[
                 {
