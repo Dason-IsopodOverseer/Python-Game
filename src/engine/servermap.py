@@ -403,6 +403,15 @@ class ServerMap(engine.stepmap.StepMap):
                     "speechTextDelAfter" in sprite and sprite['speechTextDelAfter'] < time.perf_counter()):
                 self.delSpriteSpeechText(sprite)
 
+    def stepMapEndSpeechText(self):
+        """ADD stepMapEndSpeechText() to add animated text appearance"""
+
+        # remove any speech start and end times from sprites that had their speech text removed this step.
+        for sprite in self['sprites']:
+            if 'speechText' not in sprite and 'speechTextAppearStart' in sprite:
+                del sprite['speechTextAppearStart']
+                del sprite['speechTextAppearEnd']
+                
     def setSpriteSpeechText(self, sprite, speechText, speechTextDelAfter=0):
         """SPEECH TEXT MECHANIC: add speechText to sprite.
 

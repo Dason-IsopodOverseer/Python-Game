@@ -3,7 +3,10 @@
 import pygame
 from pygame.locals import *
 from engine.log import log
-import engine.clientmap
+import engine.clientmap   
+import engine.time as time
+import math
+
 class ClientMap(engine.clientmap.ClientMap):
     """Extends engine.clientmap.ClientMap"""
 
@@ -38,3 +41,35 @@ class ClientMap(engine.clientmap.ClientMap):
 
         # render the map as normal
         return super().blitMap(destImage, offset, sprites)
+
+
+
+    def blitSpeechText(self, destImage, offset, object):
+        """EXTEND blitSpeechText() to add animated text appearance"""
+
+        # if object has speechText and that text should be animated
+        if 'speechText' in object and 'speechTextAppearStart' in object:
+            now = time.perf_counter()
+            # if the text should not be fully shown yet
+            if now < object['speechTextAppearEnd']:
+                # percentToShow is the value (betwen 0.0 and 1.0) of how far 'now' is between start and end time.
+                percentToShow = (now - object['speechTextAppearStart']) / (object['speechTextAppearEnd'] - object['speechTextAppearStart'])
+
+                # find how many of the total number of letters to show.
+                lettersToShow = math.ceil(len(object['speechText']) * percentToShow)
+
+                # truncate speechText to the correct number of letters and render it.
+                orig = object['speechText']
+                object['speechText'] = object['speechText'][:lettersToShow]
+                validUntil1 = super().blitSpeechText(destImage, offset, object)
+                # put back the full text so we can use it on the next screen update.
+                # we need to put this back since the next letter may need to be displayed before the server sends a new step.
+                object['speechText'] = orig
+
+                # at what time should the next letter appear. This is how long the updated display is valid until.
+                validUntil2 = now + (object['speechTextAppearEnd'] - object['speechTextAppearStart']) / len(object['speechText'])
+
+                # return min of the two times the screen might need to be updated again.
+                return min(validUntil1, validUntil2)
+
+        return super().blitSpeechText(destImage, offset, object)
