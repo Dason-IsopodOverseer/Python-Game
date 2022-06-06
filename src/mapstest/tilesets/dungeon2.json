@@ -12,6 +12,42 @@
         {
          "animation":[
                 {
+                 "duration":30,
+                 "tileid":24
+                }, 
+                {
+                 "duration":30,
+                 "tileid":25
+                }, 
+                {
+                 "duration":30,
+                 "tileid":26
+                }, 
+                {
+                 "duration":30,
+                 "tileid":27
+                }, 
+                {
+                 "duration":30,
+                 "tileid":28
+                }, 
+                {
+                 "duration":30,
+                 "tileid":29
+                }, 
+                {
+                 "duration":30,
+                 "tileid":30
+                }, 
+                {
+                 "duration":30,
+                 "tileid":31
+                }],
+         "id":31
+        }, 
+        {
+         "animation":[
+                {
                  "duration":100,
                  "tileid":47
                 }, 
@@ -64,6 +100,102 @@
         {
          "animation":[
                 {
+                 "duration":3000,
+                 "tileid":1590
+                }, 
+                {
+                 "duration":800,
+                 "tileid":1584
+                }],
+         "id":1062
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":1531
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1521
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1508
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1545
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1495
+                }],
+         "id":1510
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":1531
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1530
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1529
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1528
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1527
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1526
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1525
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1524
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1525
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1526
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1527
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1528
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1529
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1530
+                }],
+         "id":1524
+        }, 
+        {
+         "animation":[
+                {
                  "duration":150,
                  "tileid":1532
                 }, 
@@ -80,6 +212,26 @@
                  "tileid":1534
                 }],
          "id":1534
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":1531
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1536
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1546
+                }, 
+                {
+                 "duration":200,
+                 "tileid":1545
+                }],
+         "id":1546
         }],
  "tilewidth":32,
  "type":"tileset",
