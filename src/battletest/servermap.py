@@ -43,6 +43,20 @@ class ServerMap(engine.servermap.ServerMap):
         "Andre" : 45,
         "Leslie" : 25
     }
+    eAttacks = {
+        ["Engineering Aspirations", 1, 3],
+        ["Cram Session", 1.5, 8]
+    }
+
+    aAttacks = {
+        ["Football", 1.2, 3],
+        ["Varsity Athlete Enhancers", 1.4, 5]
+    }
+
+    lAttacks = {
+        ["Artistic Talent", 0.8, 3],
+        ["Slam Poetry", 1.2, 7]
+    }
 
     def getMovability(self):
         return True
@@ -57,9 +71,20 @@ class ServerMap(engine.servermap.ServerMap):
         is not currently over and the sprite has requested an action, perform
         action accordingly.
         """
+        
+        if (sprite["name" == "Andre"]):
+            atkArr = self.aAttacks
+        elif (sprite["name" == "Eric"]):
+            atkArr = self.eAttacks
+        elif (sprite["name" == "Leslie"]):
+            atkArr = self.lAttacks
+
         if "action" in sprite and not self.turnDone:
             self.delSpriteAction(sprite)
             if currentAct == 'a':
+                if "1" in sprite["action"]:
+                    log("attack 1")
+                
                 damage = random.randrange(8, 12)
 
                 if (sprite["name"] == "Andre"):
@@ -68,10 +93,6 @@ class ServerMap(engine.servermap.ServerMap):
                     damage *= self.eDmgMult
                 elif (sprite["name"] == "Leslie"):
                     damage *= self.lDmgMult
-
-
-                
-
 
                 n = random.randrange(1, 20)	
                 if (n > 3):	
