@@ -421,7 +421,7 @@ class ServerMap(engine.servermap.ServerMap):
 
     def setSpriteSpeechText(self, sprite, speechText, speechTextDelAfter=0, speechTextAppearSec = 0.5):
         """EXTEND setSpriteSpeechText() to add animated text appearance"""
-
+        speechTextAppearSec = (len(speechText))/30
         super().setSpriteSpeechText(sprite, speechText, speechTextDelAfter)
 
         # if a speechTextAppearSec has been provided and a start time is not already in sprite
