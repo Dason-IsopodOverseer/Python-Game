@@ -33,6 +33,7 @@ class ClientMap(engine.clientmap.ClientMap):
             "bgcolor": (0, 0, 0, 0),
             "bgbordercolor": (0, 0, 0, 0)
             })
+    
     def blitMap(self, destImage, offset, sprites):
         """Extend blitMap() to remove sprites with 'visible' == False"""
 
@@ -41,8 +42,6 @@ class ClientMap(engine.clientmap.ClientMap):
 
         # render the map as normal
         return super().blitMap(destImage, offset, sprites)
-
-
 
     def blitSpeechText(self, destImage, offset, object):
         """EXTEND blitSpeechText() to add animated text appearance"""
