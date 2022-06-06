@@ -264,6 +264,26 @@
         {
          "animation":[
                 {
+                 "duration":400,
+                 "tileid":4393
+                }, 
+                {
+                 "duration":400,
+                 "tileid":4394
+                }, 
+                {
+                 "duration":400,
+                 "tileid":4395
+                }, 
+                {
+                 "duration":200,
+                 "tileid":4396
+                }],
+         "id":4393
+        }, 
+        {
+         "animation":[
+                {
                  "duration":200,
                  "tileid":4560
                 }, 
@@ -384,6 +404,18 @@
                  "tileid":4797
                 }],
          "id":4796
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":400,
+                 "tileid":4798
+                }, 
+                {
+                 "duration":400,
+                 "tileid":4799
+                }],
+         "id":4799
         }],
  "tilewidth":32,
  "type":"tileset",
