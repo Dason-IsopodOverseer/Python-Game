@@ -24,7 +24,7 @@ class ServerMap(engine.servermap.ServerMap):
     """
     turnDone = False
     eTurnEndTime = 0
-
+    attacking = False
     enemyHealth = 100
     enemyDmgMult = 1
     eDefending = False
@@ -43,20 +43,20 @@ class ServerMap(engine.servermap.ServerMap):
         "Andre" : 45,
         "Leslie" : 25
     }
-    eAttacks = {
+    eAttacks = [
         ["Engineering Aspirations", 1, 3],
         ["Cram Session", 1.5, 8]
-    }
+    ]
 
-    aAttacks = {
+    aAttacks = [
         ["Football", 1.2, 3],
         ["Varsity Athlete Enhancers", 1.4, 5]
-    }
+    ]
 
-    lAttacks = {
+    lAttacks = [
         ["Artistic Talent", 0.8, 3],
         ["Slam Poetry", 1.2, 7]
-    }
+    ]
 
     def getMovability(self):
         return True
@@ -64,6 +64,21 @@ class ServerMap(engine.servermap.ServerMap):
     # BATTLE ACTION MECHANIC
     ########################################################
 
+    def attack(self, trigger, sprite):
+        if sprite["name"] == "Andre":
+            atkArr = self.aAttacks
+        elif sprite["name"] == "Eric":
+            atkArr = self.eAttacks
+        elif sprite["name"] == "Leslie":
+            atkArr = self.lAttacks
+        if "atkOption" in sprite:
+            if sprite["atkOption"] == 1:
+                log("hi this is workingngngngngng")
+                self.attacking = False
+                self.delSpriteAction(sprite)
+                self.delSpriteAtk(sprite)
+                self.setSpriteSpeechText(sprite, "using attack one!", time.perf_counter() + 2)
+    
     def act(self, trigger, sprite, currentAct):
         """BATTLE ACTION MECHANIC: act method.
 
@@ -72,19 +87,14 @@ class ServerMap(engine.servermap.ServerMap):
         action accordingly.
         """
         
-        if (sprite["name" == "Andre"]):
-            atkArr = self.aAttacks
-        elif (sprite["name" == "Eric"]):
-            atkArr = self.eAttacks
-        elif (sprite["name" == "Leslie"]):
-            atkArr = self.lAttacks
-
+        
         if "action" in sprite and not self.turnDone:
             self.delSpriteAction(sprite)
+            
+        
+            
+            """
             if currentAct == 'a':
-                if "1" in sprite["action"]:
-                    log("attack 1")
-                
                 damage = random.randrange(8, 12)
 
                 if (sprite["name"] == "Andre"):
@@ -127,6 +137,7 @@ class ServerMap(engine.servermap.ServerMap):
                 if self.currentTurn > 2:
                     self.currentTurn = 0
                     self.turnDone = True
+        """
 
     def triggerAttack(self, trigger, sprite):
         """BATTLE ACTION MECHANIC: triggerAttack method.
@@ -136,7 +147,11 @@ class ServerMap(engine.servermap.ServerMap):
         if not self.turnDone:
             if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
                 self.setSpriteSpeechText(sprite, "Press space to attack")
-                self.act(self, sprite, 'a')
+                if "action" in sprite:
+                    self.attacking = True
+                    self.attack(self, sprite)
+                if self.attacking:
+                    self.setSpriteSpeechText(sprite, "1, 2")
 
     
     def triggerDefend(self, trigger, sprite):
@@ -144,6 +159,7 @@ class ServerMap(engine.servermap.ServerMap):
 
         Prompt player to defend and perform defense if sprite requests action.
         """
+        self.attacking = False
         if not self.turnDone:
             if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
                 self.setSpriteSpeechText(sprite, "Press space to defend")
@@ -155,10 +171,19 @@ class ServerMap(engine.servermap.ServerMap):
         Prompt player to use special action and perform special action if sprite 
         requests action.
         """
+        self.attacking = False
         if not self.turnDone:
             if (self.currentTurn == 0 and sprite["name"] == "Eric") or (self.currentTurn == 1 and sprite["name"] == "Andre") or (self.currentTurn == 2 and sprite["name"] == "Leslie"):
                 self.setSpriteSpeechText(sprite, "Press space to use special action")
                 self.act(self, sprite, 's')
+    
+    def delSpriteAtk(self, sprite):
+        if "atkOption" in sprite:
+            del sprite["atkOption"]
+    
+    def setAtkOption(self, sprite, opt):
+        sprite["atkOption"] = opt
+        log("ok")
     
     ########################################################
     # TURN MECHANIC
