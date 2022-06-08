@@ -52,6 +52,40 @@
         }, 
         {
          "draworder":"topdown",
+         "id":8,
+         "name":"sprites",
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":9,
+         "name":"references",
+         "objects":[
+                {
+                 "height":0,
+                 "id":18,
+                 "name":"purgatory",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":159.666666666667,
+                 "y":160.333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":4,
          "name":"outOfBounds",
          "objects":[
@@ -237,8 +271,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":8,
- "nextobjectid":18,
+ "nextlayerid":10,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2021.03.23",
