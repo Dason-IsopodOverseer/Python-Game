@@ -88,6 +88,29 @@
         }, 
         {
          "draworder":"topdown",
+         "id":11,
+         "name":"furnishings",
+         "objects":[
+                {
+                 "gid":7869,
+                 "height":23,
+                 "id":41,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":30,
+                 "x":6,
+                 "y":225.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":6,
          "name":"sprites",
          "objects":[
@@ -142,8 +165,8 @@
                  "type":"player",
                  "visible":true,
                  "width":19.5,
-                 "x":144,
-                 "y":228
+                 "x":72,
+                 "y":237.5
                 }, 
                 {
                  "gid":7868,
@@ -160,8 +183,26 @@
                  "type":"enemy",
                  "visible":true,
                  "width":32,
-                 "x":106.962272938985,
-                 "y":161.319049836982
+                 "x":3.962272938985,
+                 "y":205.319049836982
+                }, 
+                {
+                 "gid":3283,
+                 "height":32,
+                 "id":40,
+                 "name":"Yellow",
+                 "properties":[
+                        {
+                         "name":"visible",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"enemy",
+                 "visible":true,
+                 "width":32,
+                 "x":3.5,
+                 "y":219.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -172,6 +213,7 @@
         {
          "draworder":"topdown",
          "id":5,
+         "locked":true,
          "name":"triggers",
          "objects":[
                 {
@@ -227,8 +269,8 @@
                  "type":"dialog",
                  "visible":true,
                  "width":59.936655798789,
-                 "x":117.352895513119,
-                 "y":182.697096724111
+                 "x":53.852895513119,
+                 "y":190.197096724111
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -239,6 +281,7 @@
         {
          "draworder":"topdown",
          "id":4,
+         "locked":true,
          "name":"reference",
          "objects":[
                 {
@@ -262,6 +305,7 @@
         {
          "draworder":"topdown",
          "id":9,
+         "locked":true,
          "name":"outOfBounds",
          "objects":[
                 {
@@ -281,8 +325,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":28,
+ "nextlayerid":12,
+ "nextobjectid":42,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
@@ -319,6 +363,10 @@
         {
          "firstgid":7868,
          "source":"..\/..\/tilesets\/ghost_of.json"
+        }, 
+        {
+         "firstgid":7869,
+         "source":"..\/..\/tilesets\/computer.tsj"
         }],
  "tilewidth":32,
  "type":"map",
