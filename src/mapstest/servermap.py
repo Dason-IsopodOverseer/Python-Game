@@ -190,19 +190,11 @@ class ServerMap(engine.servermap.ServerMap):
         elif("lock%" in t):
             self.canMove = False
             self.dialogCounter += 1
-        elif("assemble%" in t):
-            currentX = sprite['anchorX']
-            currentY = sprite['anchorY']
-            # teleports all players to the current player's location
-            for sprite in self['sprites']:
-                if sprite['type'] == "player":
-                    self.setObjectLocationByAnchor(sprite, currentX, currentY)
-            self.dialogCounter += 1
         elif("assemblex%" in t):
             currentX = sprite['anchorX']
             currentY = sprite['anchorY']
             n = 0
-            # teleports all players to the current player's location
+            # teleports all players to the current player's location, x-shifted
             for sprite in self['sprites']:
                 n = n + 10
                 if sprite['type'] == "player":
@@ -214,7 +206,7 @@ class ServerMap(engine.servermap.ServerMap):
             currentX = sprite['anchorX']
             currentY = sprite['anchorY']
             n = 0
-            # teleports all players to the current player's location
+            # teleports all players to the current player's location, y-shifted
             for sprite in self['sprites']:
                 n = n + 10
                 if sprite['type'] == "player":
