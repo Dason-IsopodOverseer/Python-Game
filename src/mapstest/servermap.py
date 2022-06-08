@@ -93,7 +93,8 @@ class ServerMap(engine.servermap.ServerMap):
     def initMusic(self):
         pygame.init()
 
-    def freeze(self, sprite):      
+    def freeze(self, sprite):
+        print("freeze triggered")      
         #Change the sprite's moveSpeed to zero.
         # if sprite is moving, cancel the movement by setting speed to 0.
         if "move" in sprite and sprite['move']['type'] == "Linear":
@@ -156,8 +157,10 @@ class ServerMap(engine.servermap.ServerMap):
     
     # corollary function. Does the same thing as trigger Dialog, but SETS THE CURRENT TURN TO THE SPRITE WHO FIRST HITS IT
     def triggerSelfdialog(self, trigger, sprite):
-        name = sprite["name"]
-        self.currentSpeaker = name
+        id = trigger['prop-id']
+        if not self.dialogComplete[id]:
+            name = sprite["name"]
+            self.currentSpeaker = name
         self.triggerDialog(trigger, sprite)
 
     """counts the dialog progression and executes dialog.
@@ -193,7 +196,7 @@ class ServerMap(engine.servermap.ServerMap):
         elif("assemblex%" in t):
             currentX = sprite['anchorX']
             currentY = sprite['anchorY']
-            n = 0
+            n = 20
             # teleports all players to the current player's location, x-shifted
             for sprite in self['sprites']:
                 n = n + 10
@@ -205,7 +208,7 @@ class ServerMap(engine.servermap.ServerMap):
         elif("assembley%" in t):
             currentX = sprite['anchorX']
             currentY = sprite['anchorY']
-            n = 0
+            n = 20
             # teleports all players to the current player's location, y-shifted
             for sprite in self['sprites']:
                 n = n + 10
