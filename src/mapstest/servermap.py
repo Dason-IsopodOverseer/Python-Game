@@ -433,7 +433,7 @@ class ServerMap(engine.servermap.ServerMap):
 
     def stepMapStartBattle(self):
         for sprite in self['sprites']:
-            if sprite['name'] == "enemy":
+            if sprite['type'] == "enemy":
                 if self.enemyHealth <= 0:
                     if not self.battleEnded:
                         self.currentSpeaker = "Eric"
