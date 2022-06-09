@@ -42,7 +42,7 @@ class ServerMap(engine.servermap.ServerMap):
     turnDone = False
     eTurnEndTime = 0
 
-    enemyHealth = 100
+    enemyHealth = 10
     enemyDmgMult = 1
     eDefending = False
     aDefending = False
@@ -163,6 +163,9 @@ class ServerMap(engine.servermap.ServerMap):
             self.currentSpeaker = name
         self.triggerDialog(trigger, sprite)
 
+    def finishBattleDialog(self):
+        self.currentSpeaker = "Eric"
+
     """counts the dialog progression and executes dialog.
     dialog is complete when all lines in the array have been said, so dialogcounter == array.length"""
     def speak(self, sprite, id):
@@ -171,6 +174,7 @@ class ServerMap(engine.servermap.ServerMap):
             text.append(i)
         t = text[self.dialogCounter]
         if (self.dialogCounter >= len(text) - 1) or ("end%" in t): 
+            self.enemySpeaker = False
             self.inDialog = False
             self.dialogCounter = 0
             self.setSpriteSpeechText(sprite, "end of message") #won't actually show up, btw. Just a placeholder to be removed
@@ -241,6 +245,9 @@ class ServerMap(engine.servermap.ServerMap):
         elif("show%" in t):
             sprite['visible'] = True
             self.dialogCounter += 1
+        elif("battle%" in t):
+            self.currentSpeaker = "!@$!^!@#" # prevents anyone from speaking
+            self.dialogCounter += 1
         else:
             self.setSpriteSpeechText(sprite, t)
 
@@ -270,10 +277,6 @@ class ServerMap(engine.servermap.ServerMap):
                     damage *= self.eDmgMult
                 elif (sprite["name"] == "Leslie"):
                     damage *= self.lDmgMult
-
-
-                
-
 
                 n = random.randrange(1, 20)	
                 if (n > 3):	
@@ -349,7 +352,9 @@ class ServerMap(engine.servermap.ServerMap):
         for sprite in self['sprites']:
             if sprite['type'] == "enemy":
                 if self.enemyHealth <= 0:
-                    self.battleEnded = True
+                    if not self.battleOver:
+                        self.finishBattleDialog() # alerts dialog to procede
+                    self.battleOver = True
                     self.setSpriteLabelText(sprite, "YAY U WIN :)")
                     return
                 else:
@@ -410,10 +415,10 @@ class ServerMap(engine.servermap.ServerMap):
                 else:
                     self.setSpriteLabelText(sprite, "x_x")
                     self.freeze(sprite)
+
     ########################################################
     # TYPE WRITER MECHANIC
     ########################################################
-
     def setSpriteSpeechText(self, sprite, speechText, speechTextDelAfter=0, speechTextAppearSec = 0.5):
         """EXTEND setSpriteSpeechText() to add animated text appearance"""
         speechTextAppearSec = (len(speechText))/30
