@@ -73,7 +73,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":765,
+                 "width":384.333333333333,
                  "x":34,
                  "y":13.6666666666667
                 }, 
@@ -194,8 +194,8 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":22.5,
-                 "x":398,
+                 "width":18.5,
+                 "x":402,
                  "y":21.6666666666667
                 }, 
                 {
@@ -287,7 +287,7 @@
                  "y":93.1666666666667
                 }, 
                 {
-                 "height":37.5,
+                 "height":11.5,
                  "id":193,
                  "name":"",
                  "rotation":0,
@@ -295,7 +295,18 @@
                  "visible":true,
                  "width":146,
                  "x":419.5,
-                 "y":27.6666666666667
+                 "y":53.6666666666667
+                }, 
+                {
+                 "height":16,
+                 "id":197,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":245.666333333333,
+                 "x":556.500166666667,
+                 "y":9.00000000000002
                 }],
          "offsetx":0,
          "offsety":0.333333333333314,
@@ -382,12 +393,12 @@
                         {
                          "name":"destMapName",
                          "type":"string",
-                         "value":"camosenPuzzle"
+                         "value":"bedroom"
                         }, 
                         {
                          "name":"destReference",
                          "type":"string",
-                         "value":"puzzle"
+                         "value":"carpet"
                         }],
                  "rotation":0,
                  "type":"mapDoor",
@@ -505,7 +516,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":197,
+ "nextobjectid":198,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2021.03.23",
