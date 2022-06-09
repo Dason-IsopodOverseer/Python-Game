@@ -498,3 +498,20 @@ class ServerMap(engine.servermap.ServerMap):
                 else:
                     self.setSpriteLabelText(sprite, "x_x")
                     self.freeze(sprite)
+
+    ########################################################
+    # TYPE WRITER MECHANIC
+    ########################################################
+    def setSpriteSpeechText(self, sprite, speechText, speechTextDelAfter=0, speechTextAppearSec = 0.5):
+        """EXTEND setSpriteSpeechText() to add animated text appearance"""
+        speechTextAppearSec = (len(speechText))/30
+        super().setSpriteSpeechText(sprite, speechText, speechTextDelAfter)
+
+        # if a speechTextAppearSec has been provided and a start time is not already in sprite
+        if speechTextAppearSec > 0 and 'speechTextAppearStart' not in sprite:
+                # add time to start and end appearance of text.
+                now = time.perf_counter()
+                # start showing text at this time
+                sprite['speechTextAppearStart'] = now
+                # text should be fully shown by this time.
+                sprite['speechTextAppearEnd'] = now + speechTextAppearSec
