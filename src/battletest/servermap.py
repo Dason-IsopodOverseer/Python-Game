@@ -30,6 +30,9 @@ class ServerMap(engine.servermap.ServerMap):
     eDefending = False
     aDefending = False
     lDefending = False
+    aDmgMult = 1.2
+    eDmgMult = 1
+    lDmgMult = 0.9
     aDefMult = .75
     eDefMult = .70
     lDefMult = .60
