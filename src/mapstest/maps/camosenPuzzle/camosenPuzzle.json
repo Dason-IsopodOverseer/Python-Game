@@ -92,29 +92,6 @@
         }, 
         {
          "draworder":"topdown",
-         "id":9,
-         "name":"references",
-         "objects":[
-                {
-                 "height":0,
-                 "id":23,
-                 "name":"puzzle",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":329.333333333333,
-                 "y":208.666666666667
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
          "id":10,
          "name":"sprites",
          "objects":[],
@@ -139,6 +116,29 @@
                  "width":36.6666666666666,
                  "x":302,
                  "y":563.333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":9,
+         "name":"reference",
+         "objects":[
+                {
+                 "height":0,
+                 "id":23,
+                 "name":"puzzle",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":329.333333333333,
+                 "y":208.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -421,7 +421,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":13,
+ "nextlayerid":14,
  "nextobjectid":42,
  "orientation":"orthogonal",
  "renderorder":"right-down",
@@ -467,6 +467,54 @@
         {
          "firstgid":8201,
          "source":"..\/..\/tilesets\/InteriorExtended.json"
+        }, 
+        {
+         "firstgid":9225,
+         "source":"..\/..\/tilesets\/andre.json"
+        }, 
+        {
+         "firstgid":9226,
+         "source":"..\/..\/tilesets\/eric.json"
+        }, 
+        {
+         "firstgid":9227,
+         "source":"..\/..\/tilesets\/leslie.json"
+        }, 
+        {
+         "firstgid":9228,
+         "source":"..\/..\/tilesets\/bedroom2.json"
+        }, 
+        {
+         "firstgid":9246,
+         "source":"..\/..\/tilesets\/bedroom3.json"
+        }, 
+        {
+         "firstgid":9502,
+         "source":"..\/..\/tilesets\/CLC_monster.json"
+        }, 
+        {
+         "firstgid":9503,
+         "source":"..\/..\/tilesets\/computer.json"
+        }, 
+        {
+         "firstgid":9504,
+         "source":"..\/..\/tilesets\/dungeon216x16.json"
+        }, 
+        {
+         "firstgid":33824,
+         "source":"..\/..\/tilesets\/furniture32x32.json"
+        }, 
+        {
+         "firstgid":34328,
+         "source":"..\/..\/tilesets\/ghost_of.json"
+        }, 
+        {
+         "firstgid":34329,
+         "source":"..\/..\/tilesets\/interior.json"
+        }, 
+        {
+         "firstgid":34585,
+         "source":"..\/..\/tilesets\/morebedroom32x32.json"
         }],
  "tilewidth":16,
  "type":"map",
