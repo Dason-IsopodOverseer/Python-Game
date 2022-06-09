@@ -248,6 +248,13 @@ class ServerMap(engine.servermap.ServerMap):
         elif("battle%" in t):
             self.currentSpeaker = "!@$!^!@#" # prevents anyone from speaking
             self.dialogCounter += 1
+        elif("battle%" in t):
+            self.currentSpeaker = "!@$!^!@#" # prevents anyone from speaking
+            self.setLayerVisablitybyName("battle", True)
+            self.dialogCounter += 1
+        elif("battledone%" in t):
+            self.setLayerVisablitybyName("battle", False)
+            self.dialogCounter += 1
         else:
             self.setSpriteSpeechText(sprite, t)
 
