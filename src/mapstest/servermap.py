@@ -39,7 +39,7 @@ class ServerMap(engine.servermap.ServerMap):
     currentMusic = ""
 
     # battle
-    battleFini = False
+    battleEnded = False
     turnDone = False
     eTurnEndTime = 0
     attacking = False
@@ -434,12 +434,11 @@ class ServerMap(engine.servermap.ServerMap):
     def stepMapStartBattle(self):
         for sprite in self['sprites']:
             if sprite['name'] == "enemy":
-                if not self.battleFini:
-                    self.currentSpeaker = "Eric"
                 if self.enemyHealth <= 0:
+                    if not self.battleEnded:
+                        self.currentSpeaker = "Eric"
                     self.setSpriteLabelText(sprite, "YAY U WIN :)")
                     self.battleEnded = True
-                    self.battleFini = True
                 else:
                     self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
                     if self.turnDone:
