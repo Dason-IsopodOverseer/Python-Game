@@ -29,7 +29,7 @@ class ClientMap(engine.clientmap.ClientMap):
         # labelText defaults that differ from DEFAULTTEXT
         self['LABELTEXT'].update({
             'pixelsize': 12,
-            "color": (0, 0, 0, 200),
+            "color": (255, 255, 255, 200),
             "bgcolor": (0, 0, 0, 0),
             "bgbordercolor": (0, 0, 0, 0)
             })

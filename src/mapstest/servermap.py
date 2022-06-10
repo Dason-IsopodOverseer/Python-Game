@@ -39,11 +39,14 @@ class ServerMap(engine.servermap.ServerMap):
     currentMusic = ""
 
     # battle
+    rVictory = False
+    hellX = 478
+    hellY = 28
     battleEnded = False
     turnDone = False
     eTurnEndTime = 0
     attacking = False
-    enemyHealth = 100
+    enemyHealth = 1
     enemyDmgMult = 1
     eDefending = False
     aDefending = False
@@ -56,10 +59,11 @@ class ServerMap(engine.servermap.ServerMap):
     lDefMult = .60
     enAttacked = False
     currentTurn = 0
+    playerDeath = [False, False, False]
     players = {
-        "Eric" : 30,
-        "Andre" : 45,
-        "Leslie" : 25
+        "Eric" : 1,
+        "Andre" : 1,
+        "Leslie" : 1
     }
     eAttacks = [
         ["Engineering Aspirations", 1, 3],
@@ -163,7 +167,7 @@ class ServerMap(engine.servermap.ServerMap):
             self.setMoveLinear(sprite, sprite['anchorX'], sprite['anchorY'], 100)
             self.inDialog = True
             self.dialogComplete[id] = True
-    
+        
     # corollary function. Does the same thing as trigger Dialog, but only IF a specific sprite steps on it
     # AND it is currently their turn
     def triggerSpecificdialog(self, trigger, sprite):
@@ -436,6 +440,9 @@ class ServerMap(engine.servermap.ServerMap):
             if sprite['type'] == "enemy":
                 if self.enemyHealth <= 0:
                     if not self.battleEnded:
+                        for sprite in self['sprites']:
+                            if sprite['type'] == "detection":
+                                self.setObjectLocationByAnchor(sprite, self.hellX, self.hellY)
                         self.currentSpeaker = "Eric"
                     self.setSpriteLabelText(sprite, "YAY U WIN :)")
                     self.battleEnded = True
@@ -484,19 +491,25 @@ class ServerMap(engine.servermap.ServerMap):
                     self.setSpriteLabelText(sprite, "health: " + str(self.players["Eric"]))
                 else:
                     self.setSpriteLabelText(sprite, "x_x")
-                    self.freeze(sprite)
+                    if not self.playerDeath[0]:
+                        self.setObjectLocationByAnchor(sprite, self.hellX, self.hellY)
+                        self.playerDeath[0] = True
             elif sprite['name'] == "Andre":
                 if "Andre" in self.players:
                     self.setSpriteLabelText(sprite, "Health: " + str(self.players["Andre"]))
                 else:
                     self.setSpriteLabelText(sprite, "x_x")
-                    self.freeze(sprite)
+                    if not self.playerDeath[1]:
+                        self.setObjectLocationByAnchor(sprite, self.hellX, self.hellY)
+                        self.playerDeath[1] = True
             elif sprite['name'] == "Leslie":
                 if "Leslie" in self.players:
                     self.setSpriteLabelText(sprite, "Health: " + str(self.players["Leslie"]))
                 else:
                     self.setSpriteLabelText(sprite, "x_x")
-                    self.freeze(sprite)
+                    if not self.playerDeath[2]:
+                        self.setObjectLocationByAnchor(sprite, self.hellX, self.hellY)
+                        self.playerDeath[1] = True
 
     ########################################################
     # TYPE WRITER MECHANIC
