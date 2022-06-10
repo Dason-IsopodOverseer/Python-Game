@@ -344,7 +344,7 @@ class ServerMap(engine.servermap.ServerMap):
             	
             # if player defending
             if currentAct == 'd':
-                self.setSpriteSpeechText(sprite, "defended", time.perf_counter() + 2)
+                self.setSpriteSpeechText(sprite, "Defended!", time.perf_counter() + 2)
                 if (sprite["name"] == "Andre"):
                     self.aDefending = True
                 elif (sprite["name"] == "Eric"):
@@ -354,7 +354,7 @@ class ServerMap(engine.servermap.ServerMap):
 
             # if player using special action
             elif currentAct == 's':
-                self.setSpriteSpeechText(sprite, "acted specially", time.perf_counter() + 2)
+                self.setSpriteSpeechText(sprite, "Acted specially", time.perf_counter() + 2)
 
             """
             self.currentTurn += 1
@@ -450,7 +450,7 @@ class ServerMap(engine.servermap.ServerMap):
                     self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
                     if self.turnDone:
                         #text now working, only disappears if player sprite is moving (?)
-                        self.setSpriteSpeechText(sprite, "he he he haw", time.perf_counter() + 0.1)
+                        self.setSpriteSpeechText(sprite, "He he he haw!", time.perf_counter() + 0.1)
 
                         if self.eTurnEndTime == 0:
                             self.eTurnEndTime = time.perf_counter() + 2
