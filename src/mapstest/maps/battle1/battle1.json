@@ -121,7 +121,7 @@
          "name":"battle",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":50,
          "x":0,
          "y":0
@@ -654,7 +654,7 @@
  "nextobjectid":203,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.8.5",
+ "tiledversion":"1.8.4",
  "tileheight":16,
  "tilesets":[
         {
