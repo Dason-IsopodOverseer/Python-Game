@@ -87,7 +87,6 @@ class ServerMap(engine.servermap.ServerMap):
     ]
 
     attackOption = 0
-    
 
     # loads a json file
     def getFilePath(self, folderName, fileName, fileExtension):
@@ -147,6 +146,11 @@ class ServerMap(engine.servermap.ServerMap):
             if (self.enemySpeaker):
                 if "action" in sprite:
                     self.dialogCounter += 1
+    
+    # makes cahracter say something, but no dialog
+    def triggerHmm(self, trigger, sprite):
+        t = trigger['prop-say']
+        self.setSpriteSpeechText(sprite, t)
     
     # sound can be triggered as part of a cutscene
     def playSound(self, name, extension):
