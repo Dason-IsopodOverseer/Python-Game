@@ -1,0 +1,15 @@
+{ "columns":16,
+ "image":"..\/images\/sewer_1.png",
+ "imageheight":352,
+ "imagewidth":256,
+ "margin":0,
+ "name":"sewer1",
+ "spacing":0,
+ "tilecount":352,
+ "tiledversion":"1.8.5",
+ "tileheight":16,
+ "tilewidth":16,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.8"
+}
