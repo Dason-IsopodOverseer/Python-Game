@@ -42,11 +42,12 @@ class ServerMap(engine.servermap.ServerMap):
     rVictory = False
     hellX = 478
     hellY = 28
+    battleEnded = False
 
     turnDone = False
     eTurnEndTime = 0
     attacking = False
-    enemyHealth = 100
+    enemyHealth = 2
     enemyDmgMult = 1
     eDefending = False
     aDefending = False
@@ -66,9 +67,9 @@ class ServerMap(engine.servermap.ServerMap):
 
     playerDeath = [False, False, False]
     players = {
-        "Eric" : 30,
-        "Andre" : 45,
-        "Leslie" : 25
+        "Eric" : 3,
+        "Andre" : 4,
+        "Leslie" : 2
     }
     eAttacks = [
         ["Engineering Aspirations", 1, 3],
