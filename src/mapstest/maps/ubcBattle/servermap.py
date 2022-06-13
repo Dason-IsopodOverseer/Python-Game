@@ -6,14 +6,14 @@ class ServerMap(mapstest.servermap.ServerMap):
     # battle
     hellX = 98
     hellY = 516
-    enemyHealth = 3
+    enemyHealth = 150
     enemyDmgMult = 1.7
 
     playerDeath = [False, False, False]
     players = {
-        "Eric" : 3,
-        "Andre" : 4,
-        "Leslie" : 2
+        "Eric" : 30,
+        "Andre" : 40,
+        "Leslie" : 25
     }
     eAttacks = [
         ["Otaku Tendencies", 1.3, 5],

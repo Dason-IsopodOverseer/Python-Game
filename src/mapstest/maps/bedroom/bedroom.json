@@ -112,6 +112,7 @@
         {
          "draworder":"topdown",
          "id":6,
+         "locked":true,
          "name":"sprites",
          "objects":[
                 {
@@ -223,12 +224,12 @@
                         {
                          "name":"destMapName",
                          "type":"string",
-                         "value":"UBCbattle"
+                         "value":"start"
                         }, 
                         {
                          "name":"destReference",
                          "type":"string",
-                         "value":"UBC"
+                         "value":"mapStart"
                         }],
                  "rotation":0,
                  "type":"mapDoor",

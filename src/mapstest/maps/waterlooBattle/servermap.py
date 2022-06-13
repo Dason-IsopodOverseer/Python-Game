@@ -4,16 +4,16 @@ import engine.geometry as geo
 
 class ServerMap(mapstest.servermap.ServerMap):
     # battle
-    hellX = 98
-    hellY = 516
-    enemyHealth = 300
+    hellX = 534
+    hellY = 114
+    enemyHealth = 200
     enemyDmgMult = 1.9
 
     playerDeath = [False, False, False]
     players = {
-        "Eric" : 30,
+        "Eric" : 22,
         "Andre" : 45,
-        "Leslie" : 25
+        "Leslie" : 20
     }
     eAttacks = [
         ["Waterloo Simp", 0.8, 7],

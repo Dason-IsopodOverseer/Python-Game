@@ -47,7 +47,7 @@ class ServerMap(engine.servermap.ServerMap):
     turnDone = False
     eTurnEndTime = 0
     attacking = False
-    enemyHealth = 2
+    enemyHealth = 100
     enemyDmgMult = 1
     eDefending = False
     aDefending = False
@@ -66,7 +66,7 @@ class ServerMap(engine.servermap.ServerMap):
     eSpecial = False
 
     enemyLines = [
-        "Hee hee hee haw.",
+        "YEEEHEEHEE!",
         "Suck this KWL chart!!!",
         "Have you thought about going into trades?",
         "Perish, puny mortal!"
@@ -74,9 +74,9 @@ class ServerMap(engine.servermap.ServerMap):
 
     playerDeath = [False, False, False]
     players = {
-        "Eric" : 3,
-        "Andre" : 4,
-        "Leslie" : 2
+        "Eric" : 30,
+        "Andre" : 40,
+        "Leslie" : 20
     }
     eAttacks = [
         ["Engineering Aspirations", 1, 3],
@@ -260,7 +260,15 @@ class ServerMap(engine.servermap.ServerMap):
                     self.setObjectLocationByAnchor(sprite, currentX, currentY + n)
                     n = n - 30
             n = 0
-            self.dialogCounter += 1    
+            self.dialogCounter += 1
+        elif("assembleGeese%" in t):
+            currentX = 1141
+            currentY = 65
+            # teleports all players to the current player's location, x-shifted
+            for sprite in self['sprites']:
+                if sprite['type'] == "player":
+                    self.setObjectLocationByAnchor(sprite, currentX, currentY)
+            self.dialogCounter += 1
         elif("teleport%" in t):
             t = t.split(" ")
             # teleports the selected player to the specified location
@@ -647,8 +655,12 @@ class ServerMap(engine.servermap.ServerMap):
 
         Save the sprite's current location as the its respawn point.
         """
-        log("hihihihi this is working")
         self.setRespawnPoint(sprite)
+    
+    # prevents geese from enetring respawn
+    def triggerSafeRadius(self, trigger, sprite):
+        if sprite['name'] == "Goose":
+            self.setObjectLocationByAnchor(sprite, 921, 282)
 
     def setRespawnPoint(self, sprite):
         """RESPAWN POINT MECHANIC: set the sprites respawn point to it's current location.
@@ -669,9 +681,9 @@ class ServerMap(engine.servermap.ServerMap):
             del sprite['respawn']
 
     def triggerGoose(self, trigger, sprite):
-        """SAW: trigger method.
+        """GOOSE: trigger method.
 
-        The sprite has been hit by a saw. Move the sprite back
+        The sprite has been hit by a goose. Move the sprite back
         to it's respawun point. This assumes sprite has been
         through a respawn point. The game design up to the saw
         should ensure sprite has a respawn point assigned.
@@ -688,5 +700,6 @@ class ServerMap(engine.servermap.ServerMap):
                 "That was painful!",
                 "Ow!"
                 ))
+            self.playSound("honk", "wav")
             self.setSpriteSpeechText(sprite, text, time.perf_counter() + 1)  # show text for only 1 sec.
                 
