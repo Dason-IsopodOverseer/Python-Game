@@ -1721,6 +1721,17 @@
                  "width":96.6666666666667,
                  "x":945.125419181757,
                  "y":33.2918211020505
+                }, 
+                {
+                 "height":86.6666666666667,
+                 "id":413,
+                 "name":"",
+                 "rotation":0,
+                 "type":"saveRespawnPoint",
+                 "visible":true,
+                 "width":76,
+                 "x":1423.33333333333,
+                 "y":1427.33333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3320,7 +3331,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -3348,7 +3359,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":412,
+ "nextobjectid":414,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",

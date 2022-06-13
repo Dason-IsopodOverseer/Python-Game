@@ -558,6 +558,12 @@ class ServerMap(engine.servermap.ServerMap):
     def initGeese(self):
         """CHICKEN MECHANIC: init method."""
         self['CHICKENSPEED'] = 30
+        for goose in self.findObject(type="goose", returnAll=True):
+            gooseTrigger = goose.copy()
+            gooseTrigger['collisionType'] = 'rect'
+            gooseTrigger['doNotTrigger'] = [goose]
+            self.addObject(gooseTrigger, objectList=self['triggers'])
+            self.addFollower(goose, gooseTrigger)
 
     def stepMapStartGoose(self):
         """CHICKEN MECHANIC: stepMapStart method.
@@ -579,11 +585,12 @@ class ServerMap(engine.servermap.ServerMap):
                     if pDis < playerDistance or player == False:
                         player = p
                         playerDistance = pDis
-                if player and playerDistance > 50:
+                
+                if player and playerDistance > 0:
                     self.setMoveLinear(sprite, player['anchorX'], player['anchorY'], self['CHICKENSPEED'])
                 else:
                     self.delMoveLinear(sprite)
-
+               
                 if random.randint(0, 2000) == 0:
                     text = random.choice((
                         "HONK",
@@ -592,3 +599,80 @@ class ServerMap(engine.servermap.ServerMap):
                         "I thirst for violence."
                         ))
                     self.setSpriteSpeechText(sprite, text, time.perf_counter() + 2)
+
+    
+    
+    ########################################################
+    # RESPAWN POINT MECHANIC
+    ########################################################
+
+    def setSpriteLocationByRespawnPoint(self, sprite):
+        """RESPAWN POINT MECHANIC: Move sprite to respawn point.
+
+        Move sprite to respawn point if one was previously stored.
+        This may move the sprite to a different map.
+
+        If no respawn point was previously stored in the sprite then
+        do nothing and log a warning.
+        """
+
+        if "respawn" in sprite:
+            destMap = self
+            if sprite['respawn']['mapName'] != self['name']:
+                destMap = engine.server.SERVER['maps'][sprite['respawn']['mapName']]
+                self.setObjectMap(sprite, destMap)
+            destMap.setObjectLocationByAnchor(sprite, sprite['respawn']['x'], sprite['respawn']['y'])
+            destMap.delMoveLinear(sprite)
+        else:
+            # else this sprite never went through a respawn point. Perhaps it is something the player carried into over
+            # the respawn area. Let's hope it's OK to leave it where it is.
+            log("Tried to respawn a sprite that does not have a respawn point.", "WARNING")
+
+    def triggerSaveRespawnPoint(self, trigger, sprite):
+        """RESPAWN POINT MECHANIC: trigger method.
+
+        Save the sprite's current location as the its respawn point.
+        """
+        log("hihihihi this is working")
+        self.setRespawnPoint(sprite)
+
+    def setRespawnPoint(self, sprite):
+        """RESPAWN POINT MECHANIC: set the sprites respawn point to it's current location.
+
+        Remember sprites location so the sprite can be put back to this
+        location later.
+
+        Adds attributes to sprite: respawn
+        """
+        sprite['respawn'] = {'mapName': sprite['mapName'], 'x': sprite['anchorX'], 'y': sprite['anchorY']}
+
+    def delRespawnPoint(self, sprite):
+        """RESPAWN POINT MECHANIC: remove the sprites respawn point.
+
+        Removes attributes from sprite: respawn
+        """
+        if "respawn" in sprite:
+            del sprite['respawn']
+
+    def triggerGoose(self, trigger, sprite):
+        """SAW: trigger method.
+
+        The sprite has been hit by a saw. Move the sprite back
+        to it's respawun point. This assumes sprite has been
+        through a respawn point. The game design up to the saw
+        should ensure sprite has a respawn point assigned.
+
+        Also have the sprite say an expletive.
+        """
+        if not (sprite["name"] == "Goose"):
+            self.setSpriteLocationByRespawnPoint(sprite)
+
+            # That goose probably hurt so sprite should say something.
+            text = random.choice((
+                "NOOOO!",
+                "Geese are scary...",
+                "That was painful!",
+                "Ow!"
+                ))
+            self.setSpriteSpeechText(sprite, text, time.perf_counter() + 1)  # show text for only 1 sec.
+                
