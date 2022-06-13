@@ -246,8 +246,8 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 10526, 10527, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 10654, 10655, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -658,12 +658,12 @@
         {
          "draworder":"topdown",
          "id":7,
-         "name":"triggers",
+         "name":"reference",
          "objects":[
                 {
                  "height":0,
                  "id":33,
-                 "name":"eastdoor",
+                 "name":"puzzle",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -671,6 +671,85 @@
                  "width":0,
                  "x":164.074702886248,
                  "y":1111.03565365025
+                }, 
+                {
+                 "height":0,
+                 "id":39,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":160.666666666667,
+                 "y":34.6666666666667
+                }, 
+                {
+                 "height":31.3333333333333,
+                 "id":40,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"destMapName",
+                         "type":"string",
+                         "value":"waterlooPuzzle"
+                        }, 
+                        {
+                         "name":"destReference",
+                         "type":"string",
+                         "value":"entrance"
+                        }],
+                 "rotation":0,
+                 "type":"mapDoor",
+                 "visible":true,
+                 "width":32,
+                 "x":143.333333333333,
+                 "y":1.33333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":8,
+         "name":"triggers",
+         "objects":[
+                {
+                 "height":171.5,
+                 "id":34,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":6
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":252,
+                 "x":34,
+                 "y":924
+                }, 
+                {
+                 "height":284,
+                 "id":35,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":7
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":336.666666666667,
+                 "x":-4.66666666666667,
+                 "y":164.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -678,8 +757,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":8,
- "nextobjectid":34,
+ "nextlayerid":9,
+ "nextobjectid":41,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.4",
