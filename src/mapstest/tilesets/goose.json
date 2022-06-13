@@ -1,0 +1,15 @@
+{ "columns":1,
+ "image":"..\/images\/goose.png",
+ "imageheight":16,
+ "imagewidth":16,
+ "margin":0,
+ "name":"goose",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.8.5",
+ "tileheight":16,
+ "tilewidth":16,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.8"
+}

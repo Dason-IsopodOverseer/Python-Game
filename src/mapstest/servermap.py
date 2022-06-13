@@ -551,3 +551,44 @@ class ServerMap(engine.servermap.ServerMap):
                 sprite['speechTextAppearStart'] = now
                 # text should be fully shown by this time.
                 sprite['speechTextAppearEnd'] = now + speechTextAppearSec
+
+    ########################################################
+    # Goose Mechanic
+    ########################################################
+    def initGeese(self):
+        """CHICKEN MECHANIC: init method."""
+        self['CHICKENSPEED'] = 30
+
+    def stepMapStartGoose(self):
+        """CHICKEN MECHANIC: stepMapStart method.
+
+        Have the chicken move towards the closest player, but
+        stop before getting to close. Note, if a chicken is
+        being thrown then we need to wait until it lands
+        before starting it moving again.
+
+        Also make chicken say random things at random times.
+        """
+        for sprite in self['sprites']:
+            if sprite['name'] == "Goose":
+                player = False
+                playerDistance = 0
+                # find the closet player.
+                for p in self.findObject(type="player", returnAll=True):
+                    pDis = geo.distance(sprite['anchorX'], sprite['anchorY'], p['anchorX'], p['anchorY'])
+                    if pDis < playerDistance or player == False:
+                        player = p
+                        playerDistance = pDis
+                if player and playerDistance > 50:
+                    self.setMoveLinear(sprite, player['anchorX'], player['anchorY'], self['CHICKENSPEED'])
+                else:
+                    self.delMoveLinear(sprite)
+
+                if random.randint(0, 2000) == 0:
+                    text = random.choice((
+                        "HONK",
+                        "Humans must die.",
+                        "Blood is my juice.",
+                        "I thirst for violence."
+                        ))
+                    self.setSpriteSpeechText(sprite, text, time.perf_counter() + 2)

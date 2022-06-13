@@ -419,12 +419,12 @@
                         {
                          "name":"destMapName",
                          "type":"string",
-                         "value":"bedroom"
+                         "value":"UBCbattle"
                         }, 
                         {
                          "name":"destReference",
                          "type":"string",
-                         "value":"carpet"
+                         "value":"UBC"
                         }],
                  "rotation":0,
                  "type":"mapDoor",

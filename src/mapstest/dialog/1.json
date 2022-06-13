@@ -167,6 +167,7 @@
     "lock%",
     "move% 80 1050 90",
     "speaker% Andre",
+    "music% sans wav",
     "move% 160 1000 90",
     "speaker% Leslie",
     "move% 210 1040 90",
@@ -188,6 +189,8 @@
   ],
   "7": [
     "lock%",
+    "assemblex%",
+    "speaker% Eric",
     "move% 100 400 90",
     "speaker% Andre",
     "move% 160 400 90",

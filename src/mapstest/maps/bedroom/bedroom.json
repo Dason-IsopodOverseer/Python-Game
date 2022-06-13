@@ -223,12 +223,12 @@
                         {
                          "name":"destMapName",
                          "type":"string",
-                         "value":"start"
+                         "value":"UBCbattle"
                         }, 
                         {
                          "name":"destReference",
                          "type":"string",
-                         "value":"mapStart"
+                         "value":"UBC"
                         }],
                  "rotation":0,
                  "type":"mapDoor",

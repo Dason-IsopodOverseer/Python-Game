@@ -1,0 +1,15 @@
+{ "columns":1,
+ "image":"..\/images\/UBC.png",
+ "imageheight":50,
+ "imagewidth":50,
+ "margin":0,
+ "name":"UBC",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.8.5",
+ "tileheight":50,
+ "tilewidth":50,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.8"
+}
