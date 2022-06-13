@@ -6,14 +6,14 @@ class ServerMap(mapstest.servermap.ServerMap):
     # battle
     hellX = 534
     hellY = 114
-    enemyHealth = 200
+    enemyHealth = 350
     enemyDmgMult = 1.9
 
     playerDeath = [False, False, False]
     players = {
-        "Eric" : 22,
+        "Eric" : 25,
         "Andre" : 45,
-        "Leslie" : 20
+        "Leslie" : 30
     }
     eAttacks = [
         ["Waterloo Simp", 0.8, 7],

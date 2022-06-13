@@ -47,7 +47,7 @@ class ServerMap(engine.servermap.ServerMap):
     turnDone = False
     eTurnEndTime = 0
     attacking = False
-    enemyHealth = 100
+    enemyHealth = 150
     enemyDmgMult = 1
     eDefending = False
     aDefending = False

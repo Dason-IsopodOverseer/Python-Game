@@ -6,7 +6,7 @@ class ServerMap(mapstest.servermap.ServerMap):
     # battle
     hellX = 98
     hellY = 516
-    enemyHealth = 150
+    enemyHealth = 300
     enemyDmgMult = 1.7
 
     playerDeath = [False, False, False]
