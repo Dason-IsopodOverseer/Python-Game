@@ -158,6 +158,37 @@
          "y":0
         }, 
         {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3208, 0, 0, 0, 2750, 0, 0, 0, 4764, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3208, 0, 0, 0, 2750, 0, 0, 0, 4764, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3208, 0, 0, 0, 2750, 0, 0, 0, 4764, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":20,
+         "id":16,
+         "name":"battle",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":40,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":11,
          "name":"outOfBounds",
@@ -229,7 +260,7 @@
                  "y":12.3528857922983
                 }, 
                 {
-                 "height":167.381602485642,
+                 "height":138.881602485642,
                  "id":7,
                  "name":"",
                  "rotation":0,
@@ -246,9 +277,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":266.204688824028,
-                 "x":374.910083796253,
-                 "y":138.969965163356
+                 "width":181.204688824028,
+                 "x":456.910083796253,
+                 "y":140.969965163356
                 }, 
                 {
                  "height":107.470106392995,
@@ -304,6 +335,290 @@
                  "width":56.2056303549572,
                  "x":44.4703888522738,
                  "y":73.4996704641747
+                }, 
+                {
+                 "height":14,
+                 "id":16,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":200,
+                 "x":156.5,
+                 "y":121
+                }, 
+                {
+                 "height":14.5,
+                 "id":17,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":206,
+                 "x":154,
+                 "y":188.5
+                }, 
+                {
+                 "height":181.5,
+                 "id":18,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":13.5,
+                 "x":149,
+                 "y":70
+                }, 
+                {
+                 "height":183.5,
+                 "id":19,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":14.5,
+                 "x":353.5,
+                 "y":71
+                }, 
+                {
+                 "height":14,
+                 "id":20,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":228.5,
+                 "x":142,
+                 "y":251.5
+                }, 
+                {
+                 "height":10.5,
+                 "id":21,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":225,
+                 "x":146.5,
+                 "y":64.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"triggers",
+         "objects":[
+                {
+                 "height":49,
+                 "id":23,
+                 "name":"dialog",
+                 "properties":[
+                        {
+                         "name":"id",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":54.5,
+                 "x":471.5,
+                 "y":184
+                }, 
+                {
+                 "height":313.333333333333,
+                 "id":24,
+                 "name":"",
+                 "rotation":0,
+                 "type":"cutscene",
+                 "visible":true,
+                 "width":613.333333333333,
+                 "x":26,
+                 "y":6.66666666666667
+                }, 
+                {
+                 "height":27.5,
+                 "id":25,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"destMapName",
+                         "type":"string",
+                         "value":"death2"
+                        }, 
+                        {
+                         "name":"destReference",
+                         "type":"string",
+                         "value":"purgatory"
+                        }],
+                 "rotation":0,
+                 "type":"mapDoor",
+                 "visible":true,
+                 "width":29,
+                 "x":519,
+                 "y":99.5
+                }, 
+                {
+                 "height":31,
+                 "id":27,
+                 "name":"atk",
+                 "rotation":0,
+                 "type":"attack",
+                 "visible":true,
+                 "width":30,
+                 "x":177.5,
+                 "y":144
+                }, 
+                {
+                 "height":31,
+                 "id":28,
+                 "name":"atk",
+                 "rotation":0,
+                 "type":"attack",
+                 "visible":true,
+                 "width":30,
+                 "x":180.5,
+                 "y":81
+                }, 
+                {
+                 "height":31,
+                 "id":29,
+                 "name":"atk",
+                 "rotation":0,
+                 "type":"attack",
+                 "visible":true,
+                 "width":30,
+                 "x":178.5,
+                 "y":210
+                }, 
+                {
+                 "height":31,
+                 "id":30,
+                 "name":"def",
+                 "rotation":0,
+                 "type":"defend",
+                 "visible":true,
+                 "width":30,
+                 "x":241.5,
+                 "y":81.5
+                }, 
+                {
+                 "height":31,
+                 "id":31,
+                 "name":"def",
+                 "rotation":0,
+                 "type":"defend",
+                 "visible":true,
+                 "width":30,
+                 "x":242.5,
+                 "y":145.5
+                }, 
+                {
+                 "height":31,
+                 "id":32,
+                 "name":"def",
+                 "rotation":0,
+                 "type":"defend",
+                 "visible":true,
+                 "width":30,
+                 "x":242,
+                 "y":210
+                }, 
+                {
+                 "height":31,
+                 "id":33,
+                 "name":"s",
+                 "rotation":0,
+                 "type":"special",
+                 "visible":true,
+                 "width":30,
+                 "x":304.5,
+                 "y":209.5
+                }, 
+                {
+                 "height":31,
+                 "id":35,
+                 "name":"s",
+                 "rotation":0,
+                 "type":"special",
+                 "visible":true,
+                 "width":30,
+                 "x":305,
+                 "y":145
+                }, 
+                {
+                 "height":31,
+                 "id":36,
+                 "name":"s",
+                 "rotation":0,
+                 "type":"special",
+                 "visible":true,
+                 "width":30,
+                 "x":305,
+                 "y":82.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":15,
+         "name":"sprites",
+         "objects":[
+                {
+                 "gid":30756,
+                 "height":64,
+                 "id":14,
+                 "name":"BossGoose",
+                 "rotation":0,
+                 "type":"enemy",
+                 "visible":true,
+                 "width":64,
+                 "x":370.833333333333,
+                 "y":231.166666666667
+                }, 
+                {
+                 "gid":249,
+                 "height":16,
+                 "id":26,
+                 "name":"savior",
+                 "rotation":0,
+                 "type":"detection",
+                 "visible":true,
+                 "width":16,
+                 "x":528.5,
+                 "y":79
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":13,
+         "name":"reference",
+         "objects":[
+                {
+                 "height":0,
+                 "id":22,
+                 "name":"finalDestination",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":601.5,
+                 "y":304.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -311,8 +626,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":14,
+ "nextlayerid":17,
+ "nextobjectid":37,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
@@ -321,6 +636,30 @@
         {
          "firstgid":1,
          "source":"..\/..\/tilesets\/sewer1.json"
+        }, 
+        {
+         "firstgid":353,
+         "source":"..\/..\/tilesets\/andre.json"
+        }, 
+        {
+         "firstgid":354,
+         "source":"..\/..\/tilesets\/dungeon2.json"
+        }, 
+        {
+         "firstgid":6434,
+         "source":"..\/..\/tilesets\/dungeon216x16.json"
+        }, 
+        {
+         "firstgid":30754,
+         "source":"..\/..\/tilesets\/eric.json"
+        }, 
+        {
+         "firstgid":30755,
+         "source":"..\/..\/tilesets\/leslie.json"
+        }, 
+        {
+         "firstgid":30756,
+         "source":"..\/..\/tilesets\/bossgoose.json"
         }],
  "tilewidth":16,
  "type":"map",

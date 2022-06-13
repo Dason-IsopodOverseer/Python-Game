@@ -65,6 +65,13 @@ class ServerMap(engine.servermap.ServerMap):
     aSpecialMult = 0.9
     eSpecial = False
 
+    enemyLines = [
+        "Hee hee hee haw.",
+        "Suck this KWL chart!!!",
+        "Have you thought about going into trades?",
+        "Perish, puny mortal!"
+    ]
+
     playerDeath = [False, False, False]
     players = {
         "Eric" : 3,
@@ -87,6 +94,8 @@ class ServerMap(engine.servermap.ServerMap):
     ]
 
     attackOption = 0
+    etext = "."
+    
 
     # loads a json file
     def getFilePath(self, folderName, fileName, fileExtension):
@@ -388,12 +397,14 @@ class ServerMap(engine.servermap.ServerMap):
                 self.currentTurn = 0
                 self.turnDone = True
                 self.eSpecial = False
+                self.etext = random.choice((self.enemyLines[0], self.enemyLines[1], self.enemyLines[2], self.enemyLines[3]))
         while (self.currentTurn == 0 and "Eric" not in self.players) or (self.currentTurn == 1 and "Andre" not in self.players) or (self.currentTurn == 2 and "Leslie" not in self.players):
             self.currentTurn += 1
             if self.currentTurn > 2:
                 self.currentTurn = 0
                 self.eSpecial = False
                 self.turnDone = True
+                self.etext = random.choice((self.enemyLines[0], self.enemyLines[1], self.enemyLines[2], self.enemyLines[3]))
 
     def triggerAttack(self, trigger, sprite):
         """BATTLE ACTION MECHANIC: triggerAttack method.
@@ -457,6 +468,9 @@ class ServerMap(engine.servermap.ServerMap):
     ########################################################
 
     def stepMapStartBattle(self):
+        if not self.turnDone:
+            if (self.currentTurn == 0 and "Eric" not in self.players) or (self.currentTurn == 1 and "Andre" not in self.players) or (self.currentTurn == 2 and "Leslie" not in self.players):
+                self.advanceTurn()
         for sprite in self['sprites']:
             if sprite['type'] == "enemy":
                 if self.enemyHealth <= 0:
@@ -471,7 +485,7 @@ class ServerMap(engine.servermap.ServerMap):
                     self.setSpriteLabelText(sprite, "health: " + str(self.enemyHealth))
                     if self.turnDone:
                         #text now working, only disappears if player sprite is moving (?)
-                        self.setSpriteSpeechText(sprite, "He he he haw!", time.perf_counter() + 0.1)
+                        self.setSpriteSpeechText(sprite, self.etext, time.perf_counter() + 0.1)
 
                         if self.eTurnEndTime == 0:
                             self.eTurnEndTime = time.perf_counter() + 2

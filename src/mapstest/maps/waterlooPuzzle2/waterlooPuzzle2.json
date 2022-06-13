@@ -1715,6 +1715,17 @@
                  "height":44,
                  "id":26,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"destMapName",
+                         "type":"string",
+                         "value":"waterlooBattle"
+                        }, 
+                        {
+                         "name":"destReference",
+                         "type":"string",
+                         "value":"finalDestination"
+                        }],
                  "rotation":0,
                  "type":"mapDoor",
                  "visible":true,

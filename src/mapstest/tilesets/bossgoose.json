@@ -1,0 +1,15 @@
+{ "columns":1,
+ "image":"..\/images\/bossgoose.png",
+ "imageheight":64,
+ "imagewidth":64,
+ "margin":0,
+ "name":"bossgoose",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.8.5",
+ "tileheight":64,
+ "tilewidth":64,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.8"
+}

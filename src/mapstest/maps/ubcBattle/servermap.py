@@ -7,7 +7,7 @@ class ServerMap(mapstest.servermap.ServerMap):
     hellX = 98
     hellY = 516
     enemyHealth = 3
-    enemyDmgMult = 1.5
+    enemyDmgMult = 1.7
 
     playerDeath = [False, False, False]
     players = {
@@ -16,16 +16,23 @@ class ServerMap(mapstest.servermap.ServerMap):
         "Leslie" : 2
     }
     eAttacks = [
-        ["Otaku Tendencies", 1, 3],
-        ["Anime Obsession", 1.5, 8]
+        ["Otaku Tendencies", 1.3, 5],
+        ["Anime Obsession", 1.6, 8]
     ]
 
     aAttacks = [
-        ["Athletic Leadership", 1.2, 3],
-        ["Tackle", 1.4, 5]
+        ["Athletic Leadership", 1.5, 5],
+        ["Tackle", 1.8, 7]
     ]
 
     lAttacks = [
-        ["DeviantArt Portfolio", 0.8, 3],
-        ["Wattpad Fanfiction", 1.2, 7]
+        ["DeviantArt Portfolio", 1, 3],
+        ["Wattpad Fanfiction", 1.4, 7]
+    ]
+
+    enemyLines = [
+        "Hmmm... your personal profile is subpar.",
+        "Hmmm... your accomplishments mean nothing.",
+        "Hmmm... have you considered a career in forestry?",
+        "Hmmm... you are not worthy of a scholarship."
     ]
