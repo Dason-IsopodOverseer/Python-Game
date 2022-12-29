@@ -1,8 +1,8 @@
 [ **ABOUT** | [SETUP and RUN](SETUP.md) | [CREATE A GAME](CREATE.md) | [TUTORIALS](TUTORIALS.md) | [CONTRIBUTING](CONTRIBUTING.md) ]
 
 # How to play our game:
-Run mapstest.bat
-Try out the demo or test batch files to see different testing environments.
+* Run mapstest.bat
+* Try out the demo or test batch files to see different testing environments.
 
 # !!! How to use cutscene system, DOCUMENTATION:
 Pls refer to the following:
